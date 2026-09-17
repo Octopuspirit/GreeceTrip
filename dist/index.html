@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>希腊 10 日行程 · 雅典 · 梅黛奥拉 · 米洛斯 · 克里特</title>
+<meta name="description" content="2026.10.01-10.10 希腊自由行完整行程：航班、轮渡、住宿、逐日安排，手机端查看。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="希腊 10 日行程 · 雅典 · 梅黛奥拉 · 米洛斯 · 克里特">
+<meta property="og:description" content="2026.10.01-10.10 希腊自由行完整行程：4 段航班、3 段夜船、逐日安排一页看完。">
+<meta name="theme-color" content="#0EA5E9">
+<meta name="format-detection" content="telephone=no">
+<style>
+:root{
+  --primary:#0EA5E9; --primary-dark:#0284C7; --primary-deep:#0C4A6E;
+  --secondary:#38BDF8; --accent:#F97316; --accent-soft:#FFF7ED;
+  --bg:#F0F9FF; --surface:#FFFFFF; --surface-2:#F8FAFC;
+  --text:#0F172A; --text-muted:#475569; --text-soft:#64748B;
+  --border:#E2E8F0; --border-strong:#CBD5E1;
+  --ok:#059669; --ok-bg:#ECFDF5; --warn:#B45309; --warn-bg:#FFFBEB;
+  --pend:#64748B; --pend-bg:#F1F5F9; --night:#4338CA; --night-bg:#EEF2FF;
+  --r:14px; --r-lg:20px;
+  --shadow:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --shadow-md:0 4px 12px rgba(15,23,42,.08);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  background:var(--bg); color:var(--text);
+  font-size:15px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(72px + var(--safe-b));
+  overflow-x:hidden;
+}
+.wrap{max-width:560px;margin:0 auto;position:relative}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; overflow:hidden;
+  background:linear-gradient(160deg,#0C4A6E 0%,#0369A1 45%,#0EA5E9 100%);
+  color:#fff; padding:30px 20px 26px;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 82% 12%,rgba(255,255,255,.22),transparent 42%),
+    radial-gradient(circle at 12% 88%,rgba(56,189,248,.28),transparent 46%);
+  pointer-events:none;
+}
+.hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:26px;display:block}
+.hero-inner{position:relative;z-index:1}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:600;letter-spacing:.09em;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25);
+  padding:5px 11px;border-radius:999px;margin-bottom:13px;
+}
+.hero h1{font-size:25px;line-height:1.28;font-weight:750;letter-spacing:-.01em}
+.hero h1 small{display:block;font-size:13.5px;font-weight:450;opacity:.9;margin-top:7px;letter-spacing:.02em}
+.hero-date{
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+  margin-top:15px;font-size:14px;font-weight:550;
+}
+.hero-date .arw{opacity:.65}
+.hero-stats{display:flex;gap:8px;margin-top:18px}
+.hstat{
+  flex:1;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);border-radius:12px;padding:9px 6px;text-align:center;
+}
+.hstat b{display:block;font-size:19px;font-weight:700;line-height:1.2}
+.hstat span{font-size:10.5px;opacity:.88;letter-spacing:.03em}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  display:flex;overflow-x:auto;scrollbar-width:none;
+  padding:0 8px;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav button{
+  flex:0 0 auto;background:none;border:none;font-family:inherit;
+  font-size:13.5px;font-weight:600;color:var(--text-soft);
+  padding:13px 13px 11px;cursor:pointer;position:relative;
+  transition:color .2s;white-space:nowrap;
+}
+.nav button[aria-selected="true"]{color:var(--primary-dark)}
+.nav button[aria-selected="true"]::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:0;height:2.5px;
+  background:var(--primary);border-radius:3px 3px 0 0;
+}
+.nav button:focus-visible{outline:2px solid var(--primary);outline-offset:-3px;border-radius:6px}
+
+/* ---------- SECTION / PANEL ---------- */
+.panel{display:none;padding:18px 14px 8px;animation:fade .28s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.sec-h{display:flex;align-items:center;gap:8px;margin:4px 2px 12px}
+.sec-h h2{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.sec-h .cnt{
+  font-size:11.5px;font-weight:650;color:var(--primary-dark);
+  background:#E0F2FE;padding:2px 8px;border-radius:999px;
+}
+.sec-note{
+  font-size:12.5px;color:var(--text-muted);background:var(--surface-2);
+  border:1px solid var(--border);border-radius:10px;
+  padding:9px 11px;margin:0 2px 14px;line-height:1.6;
+}
+
+/* ---------- CARD ---------- */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);box-shadow:var(--shadow);
+  margin-bottom:11px;overflow:hidden;
+}
+.card-pad{padding:13px 14px}
+
+/* ---------- BADGE ---------- */
+.bd{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:650;letter-spacing:.02em;
+  padding:2.5px 8px;border-radius:999px;white-space:nowrap;
+}
+.bd-ok{background:var(--ok-bg);color:var(--ok)}
+.bd-warn{background:var(--warn-bg);color:var(--warn)}
+.bd-pend{background:var(--pend-bg);color:var(--pend)}
+.bd-night{background:var(--night-bg);color:var(--night)}
+.bd-hot{background:#FEF2F2;color:#DC2626}
+.bd-dot::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;flex:0 0 auto}
+
+/* ---------- DAY TIMELINE ---------- */
+.day{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);box-shadow:var(--shadow);
+  margin-bottom:11px;overflow:hidden;
+}
+.day-hd{
+  display:flex;align-items:stretch;gap:0;width:100%;
+  background:none;border:none;font-family:inherit;text-align:left;
+  cursor:pointer;padding:0;
+}
+.day-num{
+  flex:0 0 58px;background:linear-gradient(165deg,#F0F9FF,#E0F2FE);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:12px 4px;
+}
+.day-num b{font-size:18px;font-weight:750;color:var(--primary-deep);line-height:1.1}
+.day-num span{font-size:10px;color:var(--primary-dark);font-weight:600;margin-top:2px}
+.day-meta{flex:1;min-width:0;padding:11px 12px;display:flex;flex-direction:column;justify-content:center;gap:5px}
+.day-meta .dt{font-size:11.5px;color:var(--text-soft);font-weight:600;letter-spacing:.02em}
+.day-meta .tt{font-size:14.5px;font-weight:650;line-height:1.4;color:var(--text)}
+.day-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:1px}
+.day-chev{
+  flex:0 0 36px;display:flex;align-items:center;justify-content:center;color:var(--text-soft);
+  transition:transform .25s;
+}
+.day[open] .day-chev{transform:rotate(180deg)}
+.day-bd{border-top:1px solid var(--border);padding:14px 14px 4px;background:var(--surface-2)}
+
+.tl{position:relative;padding-left:22px}
+.tl::before{
+  content:"";position:absolute;left:5px;top:6px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--secondary),#BAE6FD);border-radius:2px;
+}
+.tl-i{position:relative;margin-bottom:14px}
+.tl-i::before{
+  content:"";position:absolute;left:-21px;top:5px;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--surface);border:2.5px solid var(--primary);
+  box-shadow:0 0 0 3px var(--surface-2);
+}
+.tl-i.k-flight::before{border-color:#7C3AED}
+.tl-i.k-ferry::before,.tl-i.k-ferry-arrival::before{border-color:#0891B2}
+.tl-i.k-tour::before{border-color:var(--accent)}
+.tl-i.k-transfer::before{border-color:#059669}
+.tl-i.k-undecided::before{border-color:#94A3B8;border-style:dashed}
+.tl-t{font-size:11.5px;font-weight:700;color:var(--primary-dark);letter-spacing:.03em;margin-bottom:2px}
+.tl-ti{font-size:14px;font-weight:600;line-height:1.5}
+.tl-d{font-size:12.5px;color:var(--text-muted);line-height:1.62;margin-top:4px}
+.tl-key{
+  border-left:3px solid var(--accent);background:var(--accent-soft);
+  margin-left:-10px;padding:7px 10px;border-radius:0 8px 8px 0;
+}
+.wish{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.wish span{font-size:11.5px;background:#E0F2FE;color:var(--primary-deep);padding:3px 8px;border-radius:7px;font-weight:550}
+.notes{margin-top:2px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:12px}
+.notes .nh{font-size:11px;font-weight:700;color:var(--text-soft);letter-spacing:.06em;margin-bottom:5px}
+.notes li{font-size:12.5px;color:var(--text-muted);line-height:1.65;margin-left:15px;margin-bottom:3px}
+.stay{
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+  padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;
+}
+.stay .ic{flex:0 0 auto;color:var(--primary-dark)}
+.stay .tx{flex:1;min-width:0}
+.stay .tx b{display:block;font-size:13px;font-weight:650}
+.stay .tx span{font-size:11.5px;color:var(--text-soft)}
+
+/* ---------- FLIGHT ---------- */
+.fl-hd{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:10px 14px;background:linear-gradient(100deg,#F5F3FF,#FAF5FF);
+  border-bottom:1px solid var(--border);
+}
+.fl-no{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:#5B21B6}
+.fl-body{display:flex;align-items:center;gap:10px;padding:14px}
+.fl-pt{flex:1;min-width:0;text-align:center}
+.fl-pt b{display:block;font-size:21px;font-weight:750;letter-spacing:-.02em;line-height:1.2}
+.fl-pt span{display:block;font-size:11.5px;color:var(--text-muted);margin-top:3px;line-height:1.4}
+.fl-mid{flex:0 0 76px;display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--text-soft)}
+.fl-mid .ln{width:100%;height:1.5px;background:repeating-linear-gradient(90deg,var(--border-strong) 0 4px,transparent 4px 8px);position:relative}
+.fl-mid .ln svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--surface);padding:0 3px}
+.fl-mid span{font-size:10.5px;font-weight:600}
+.fl-ft{padding:8px 14px;background:var(--surface-2);border-top:1px solid var(--border);font-size:11.5px;color:var(--text-muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.lay{
+  margin:-4px 0 11px;padding:11px 13px;
+  background:var(--warn-bg);border:1px dashed #FCD34D;border-radius:var(--r);
+}
+.lay b{font-size:13px;font-weight:650;color:#92400E;display:flex;align-items:center;gap:6px}
+.lay p{font-size:12.5px;color:#A16207;line-height:1.6;margin-top:4px}
+
+/* ---------- FERRY ---------- */
+.fy-hd{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:10px 14px;background:linear-gradient(100deg,#ECFEFF,#F0F9FF);border-bottom:1px solid var(--border);
+}
+.fy-v{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#155E75}
+.fy-v small{font-weight:550;color:var(--text-soft);font-size:11px}
+
+/* ---------- HOTEL ---------- */
+.ht-hd{display:flex;align-items:flex-start;gap:10px;padding:13px 14px 11px}
+.ht-ic{
+  flex:0 0 38px;height:38px;border-radius:11px;
+  background:linear-gradient(150deg,#E0F2FE,#BAE6FD);
+  display:flex;align-items:center;justify-content:center;color:var(--primary-deep);
+}
+.ht-ic.ph{background:var(--pend-bg);color:var(--pend)}
+.ht-tx{flex:1;min-width:0}
+.ht-tx b{font-size:15px;font-weight:700;display:block;line-height:1.35}
+.ht-tx b.ph{color:var(--text-soft);font-weight:600}
+.ht-tx .loc{font-size:12px;color:var(--text-muted);margin-top:2px;display:flex;align-items:center;gap:4px}
+.ht-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--border)}
+.ht-g{padding:9px 6px;text-align:center;border-right:1px solid var(--border)}
+.ht-g:last-child{border-right:none}
+.ht-g span{display:block;font-size:10px;color:var(--text-soft);letter-spacing:.04em;font-weight:600}
+.ht-g b{display:block;font-size:12.5px;font-weight:650;margin-top:2px}
+
+/* ---------- TRANSPORT OPTIONS ---------- */
+.opt{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  margin-bottom:9px;overflow:hidden;box-shadow:var(--shadow);
+}
+.opt.best{border-color:var(--accent);border-width:1.5px;box-shadow:0 2px 10px rgba(249,115,22,.13)}
+.opt-hd{display:flex;align-items:center;gap:9px;padding:11px 13px}
+.opt-rk{
+  flex:0 0 26px;height:26px;border-radius:8px;background:var(--surface-2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;font-weight:750;color:var(--text-soft);
+}
+.opt.best .opt-rk{background:var(--accent);color:#fff}
+.opt-nm{flex:1;min-width:0;font-size:14px;font-weight:680;line-height:1.35}
+.opt-pr{font-size:14px;font-weight:750;color:var(--primary-dark);white-space:nowrap}
+.opt-bd{padding:0 13px 12px;font-size:12.5px;color:var(--text-muted);line-height:1.65}
+.opt-row{display:flex;gap:7px;margin-top:6px}
+.opt-row .k{flex:0 0 46px;color:var(--text-soft);font-weight:600;font-size:12px}
+.opt-row .v{flex:1;min-width:0}
+.pc{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.pc span{font-size:11px;padding:2.5px 7px;border-radius:6px;font-weight:550}
+.pc .p{background:var(--ok-bg);color:var(--ok)}
+.pc .c{background:#FEF2F2;color:#B91C1C}
+
+.plan{background:linear-gradient(165deg,#FFF7ED,#FFFBEB);border:1px solid #FDBA74;border-radius:var(--r);padding:14px;margin-bottom:12px}
+.plan-h{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:#9A3412;margin-bottom:11px}
+.plan-tl{position:relative;padding-left:19px}
+.plan-tl::before{content:"";position:absolute;left:4px;top:5px;bottom:8px;width:2px;background:#FDBA74;border-radius:2px}
+.plan-i{position:relative;margin-bottom:10px}
+.plan-i::before{content:"";position:absolute;left:-18px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 2.5px #FFF7ED}
+.plan-i b{font-size:12px;font-weight:750;color:#9A3412;letter-spacing:.02em}
+.plan-i p{font-size:12.5px;color:#7C2D12;line-height:1.6;margin-top:1px}
+.plan-bf{margin-top:9px;padding-top:9px;border-top:1px dashed #FDBA74;font-size:12px;color:#9A3412;font-weight:600}
+
+/* ---------- CHECKLIST ---------- */
+.ck{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:12px;box-shadow:var(--shadow)}
+.ck-h{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700}
+.ck-i{display:flex;align-items:flex-start;gap:9px;padding:10px 14px;border-bottom:1px solid var(--surface-2)}
+.ck-i:last-child{border-bottom:none}
+.ck-i .bx{flex:0 0 auto;margin-top:2px}
+.ck-i .tx{flex:1;min-width:0}
+.ck-i .tx b{display:block;font-size:13.5px;font-weight:600;line-height:1.45}
+.ck-i .tx span{display:block;font-size:11.5px;color:var(--text-soft);margin-top:2px;line-height:1.55}
+.ck-i .dt{font-size:11px;font-weight:650;color:var(--primary-dark);background:#E0F2FE;padding:2px 7px;border-radius:6px;white-space:nowrap;flex:0 0 auto}
+
+.dl{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--r);padding:13px 14px;margin-bottom:12px}
+.dl-h{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:#B91C1C;margin-bottom:9px}
+.dl-i{display:flex;gap:9px;padding:6px 0;border-top:1px dashed #FECACA}
+.dl-i:first-of-type{border-top:none}
+.dl-i b{flex:0 0 52px;font-size:12px;font-weight:750;color:#DC2626}
+.dl-i p{flex:1;font-size:12.5px;color:#7F1D1D;line-height:1.55}
+
+.lk{display:flex;align-items:center;gap:9px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:9px;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:border-color .2s,background .2s}
+.lk:active{background:var(--surface-2);border-color:var(--primary)}
+.lk .ic{flex:0 0 34px;height:34px;border-radius:10px;background:#E0F2FE;display:flex;align-items:center;justify-content:center;color:var(--primary-dark)}
+.lk .tx{flex:1;min-width:0}
+.lk .tx b{display:block;font-size:13.5px;font-weight:650;line-height:1.4}
+.lk .tx span{display:block;font-size:11.5px;color:var(--text-soft);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.map{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:650;color:var(--primary-dark);text-decoration:none;margin-top:6px;padding:4px 9px;background:#E0F2FE;border-radius:7px}
+
+/* ---------- 地点 / 地图跳转 ---------- */
+.gp{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:600;line-height:1.35;
+  color:var(--primary-dark);text-decoration:none;
+  background:#E0F2FE;border:1px solid #BAE6FD;
+  padding:3px 8px;border-radius:8px;cursor:pointer;
+  transition:background .2s,border-color .2s;max-width:100%;
+}
+.gp:active{background:#BAE6FD;border-color:var(--primary)}
+.gp span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gp-s{background:var(--accent-soft);border-color:#FDBA74;color:#9A3412}
+.gp-s:active{background:#FED7AA}
+.gp-off{background:var(--pend-bg);border:1px dashed var(--border-strong);color:var(--text-soft);cursor:default}
+.gps{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+
+.pr{
+  display:flex;align-items:flex-start;gap:9px;
+  padding:10px 12px;background:var(--surface);
+  border:1px solid var(--border);border-radius:11px;
+  margin-bottom:7px;text-decoration:none;color:inherit;cursor:pointer;
+  transition:border-color .2s,background .2s;
+}
+.pr:active{background:#F0F9FF;border-color:var(--primary)}
+.pr-off{cursor:default;background:var(--surface-2);border-style:dashed}
+.pr-ic{
+  flex:0 0 32px;height:32px;border-radius:9px;
+  background:linear-gradient(150deg,#E0F2FE,#BAE6FD);
+  display:flex;align-items:center;justify-content:center;color:var(--primary-deep);
+}
+.pr-ic.ph{background:var(--pend-bg);color:var(--pend)}
+.pr-tx{flex:1;min-width:0}
+.pr-tx b{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px;font-weight:650;line-height:1.4}
+.pr-tx b>.bd{flex:0 0 auto}
+.pr-tx span{display:block;font-size:11.5px;color:var(--text-muted);margin-top:1px;line-height:1.5}
+.pr-tx em{display:block;font-size:11.5px;color:var(--text-soft);margin-top:3px;line-height:1.55;font-style:normal}
+.pr-go{
+  flex:0 0 30px;height:30px;border-radius:9px;background:#E0F2FE;
+  display:flex;align-items:center;justify-content:center;color:var(--primary-dark);
+  align-self:center;
+}
+
+/* ---------- 物流时间轴（住宿+交通合并） ---------- */
+.lg-day{
+  display:flex;align-items:center;gap:8px;
+  margin:16px 2px 9px;
+}
+.lg-day:first-of-type{margin-top:4px}
+.lg-day b{font-size:14px;font-weight:750;color:var(--primary-deep)}
+.lg-day span{font-size:11.5px;color:var(--text-soft);font-weight:600}
+.lg-day::after{content:"";flex:1;height:1px;background:var(--border)}
+.lg{
+  position:relative;padding-left:26px;margin-bottom:9px;
+}
+.lg::before{
+  content:"";position:absolute;left:9px;top:30px;bottom:-13px;width:2px;
+  background:var(--border);
+}
+.lg:last-child::before{display:none}
+.lg-dot{
+  position:absolute;left:0;top:12px;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--primary);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--primary-dark);z-index:1;
+}
+.lg-dot svg{width:11px;height:11px}
+.lg.k-flight .lg-dot{border-color:#7C3AED;color:#6D28D9}
+.lg.k-ferry .lg-dot{border-color:#0891B2;color:#0E7490}
+.lg.k-checkin .lg-dot,.lg.k-checkout .lg-dot{border-color:var(--ok);color:var(--ok)}
+.lg.k-stay-gap .lg-dot{border-color:var(--border-strong);border-style:dashed;color:var(--text-soft)}
+.lg.k-tour .lg-dot{border-color:var(--accent);color:#C2410C}
+.lg.k-transfer .lg-dot{border-color:#059669;color:#047857}
+.lg.k-layover .lg-dot{border-color:#D97706;color:#B45309}
+.lg-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);box-shadow:var(--shadow);padding:11px 13px;
+}
+.lg.k-transfer.is-key .lg-card{border-color:var(--accent);border-width:1.5px;background:linear-gradient(170deg,#FFFBF5,var(--surface))}
+.lg.k-stay-gap .lg-card{border-style:dashed;background:var(--surface-2)}
+.lg-hd{display:flex;align-items:flex-start;gap:8px;margin-bottom:2px}
+.lg-tm{
+  flex:0 0 auto;font-size:12px;font-weight:750;color:var(--primary-dark);
+  background:#E0F2FE;padding:1.5px 7px;border-radius:6px;letter-spacing:.02em;
+}
+.lg.k-checkin .lg-tm,.lg.k-checkout .lg-tm,.lg.k-stay-gap .lg-tm{background:var(--ok-bg);color:var(--ok)}
+.lg.k-stay-gap .lg-tm{background:var(--pend-bg);color:var(--pend)}
+.lg-ti{flex:1;min-width:0;font-size:14.5px;font-weight:680;line-height:1.42}
+.lg-sub{font-size:12px;color:var(--text-muted);line-height:1.55;margin-top:3px}
+.lg-note{
+  font-size:12px;color:var(--text-soft);line-height:1.6;margin-top:6px;
+  padding-top:6px;border-top:1px dashed var(--border);
+}
+.lg.k-transfer.is-key .lg-note{color:#9A3412;border-color:#FDBA74}
+.lg-route{display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap}
+.lg-route .ar{color:var(--text-soft);flex:0 0 auto}
+.gap{background:var(--surface-2);border:1px dashed var(--border-strong);border-radius:var(--r);padding:12px 14px;margin-bottom:12px}
+.gap h3{font-size:13px;font-weight:700;color:var(--text-muted);margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.gap li{font-size:12.5px;color:var(--text-soft);line-height:1.6;margin-left:15px;margin-bottom:3px}
+
+/* ---------- BOTTOM BAR ---------- */
+.bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:60;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
+  border-top:1px solid var(--border);
+  padding:9px 14px calc(9px + var(--safe-b));
+  display:flex;gap:9px;align-items:center;
+  max-width:560px;margin:0 auto;
+}
+.bar-tip{flex:1;min-width:0;font-size:11.5px;color:var(--text-soft);line-height:1.45}
+.bar-tip b{color:var(--text);font-weight:650;font-size:12.5px;display:block}
+.btn{
+  flex:0 0 auto;background:var(--primary);color:#fff;border:none;
+  font-family:inherit;font-size:13.5px;font-weight:650;
+  padding:10px 16px;border-radius:11px;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+  transition:background .2s;
+}
+.btn:active{background:var(--primary-dark)}
+.toast{
+  position:fixed;left:50%;bottom:calc(76px + var(--safe-b));transform:translate(-50%,10px);
+  background:var(--text);color:#fff;font-size:13px;font-weight:550;
+  padding:10px 18px;border-radius:11px;z-index:100;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+  box-shadow:var(--shadow-md);max-width:86vw;text-align:center;line-height:1.5;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.ft{text-align:center;padding:16px 20px 8px;font-size:11.5px;color:var(--text-soft);line-height:1.7}
+svg{flex:0 0 auto;display:block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(min-width:561px){body{padding-bottom:calc(84px + var(--safe-b))}.wrap{box-shadow:0 0 40px rgba(15,23,42,.07);min-height:100vh;background:var(--bg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-tag">GREECE · 2026 AUTUMN</span>
+      <h1>希腊 10 日<small>雅典 · 梅黛奥拉 · 米洛斯 · 克里特</small></h1>
+      <div class="hero-date" id="heroDate"></div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 560 26" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 26 L0 14 Q 70 2 140 12 T 280 13 T 420 11 T 560 15 L560 26 Z" fill="#F0F9FF"/>
+    </svg>
+  </header>
+
+  <nav class="nav" id="nav" role="tablist" aria-label="行程分区"></nav>
+
+  <main>
+    <section class="panel on" id="p-days" role="tabpanel"></section>
+    <section class="panel" id="p-flights" role="tabpanel"></section>
+    <section class="panel" id="p-logi" role="tabpanel"></section>
+    <section class="panel" id="p-places" role="tabpanel"></section>
+    <section class="panel" id="p-todo" role="tabpanel"></section>
+  </main>
+
+  <p class="ft" id="ft"></p>
+</div>
+
+<div class="bar">
+  <div class="bar-tip"><b>分享给同行朋友</b>微信中点右上角「···」即可转发</div>
+  <button class="btn" id="shareBtn">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+    复制链接
+  </button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="trip-data" type="application/json">{"meta":{"schemaVersion":"1.2","generatedAt":"2026-09-17","lastUpdated":"2026-09-17","changelog":["v1.1：补充米洛斯跑船游 TripAdvisor 订单详情链接；克里特住宿标记为占位待订；新增 10.10 比雷埃夫斯港→雅典机场交通方案（P3，含 4 种方式与行动时间表）；按官方页面细化梅黛奥拉一日游（含修道院门票 5 欧现金、着装要求、取消政策、13.5 小时时长）","v1.2：新增 places 地点索引（28 处，含坐标与 Google/Apple/高德地图链接）；全部航班/酒店/轮渡/集合点/游览点/跑船游停靠点挂 placeId 引用；新增 logisticsTimeline —— 住宿与交通合并为按时间顺序的 18 步行程链；补充 PAME WILD 与 Giannis 的地址电话与入退房时间；确认 Giannis 提供免费港口接送，更新米洛斯凌晨接驳建议"],"sourceDocument":"全流程总结页面.pdf","sourcePages":7,"currencyNote":"欧元(EUR)与美元(USD)按原始资料标注，未做换算","timeNote":"所有时刻均为当地时间；跨零点的段落已在字段中显式标注日期","usage":"供手机端旅行计划网页（微信分享）使用的数据源"},"trip":{"title":"希腊 10 日行程（雅典 · 梅黛奥拉 · 米洛斯 · 克里特）","startDate":"2026-10-01","endDate":"2026-10-10","returnArrivalDate":"2026-10-11","durationDays":10,"travelers":{"count":2,"description":"2 位成人","source":"米洛斯跑船游订单标注 x 2 位成人"},"countries":[{"name":"中国","role":"出发地 / 返回地","cities":["中国香港"]},{"name":"土耳其","role":"转机国","cities":["伊斯坦布尔"]},{"name":"希腊","role":"主要目的地","cities":["雅典","卡兰巴卡 / 梅黛奥拉","米洛斯岛（阿达马斯）","伊拉克里翁（克里特岛）"]}],"cities":[{"id":"hongkong","nameZh":"中国香港","nameEn":"Hong Kong","country":"中国","role":"出发 / 返回","airport":"香港国际机场 T1"},{"id":"istanbul","nameZh":"伊斯坦布尔","nameEn":"Istanbul","country":"土耳其","role":"去程与回程转机","note":"去程转机时间长（15:35-01:45），计划趁转机时间出去玩一下"},{"id":"athens","nameZh":"雅典","nameEn":"Athens","country":"希腊","role":"落地城市 / 中转枢纽 / 离境城市","nights":2},{"id":"meteora","nameZh":"梅黛奥拉（卡兰巴卡）","nameEn":"Meteora / Kalambaka","country":"希腊","role":"雅典出发一日往返","nights":0},{"id":"milos","nameZh":"米洛斯岛","nameEn":"Milos","country":"希腊","role":"海岛住宿地","port":"阿达马斯 Adamantas / Adamas","nights":2},{"id":"heraklion","nameZh":"伊拉克里翁（克里特岛）","nameEn":"Heraklion, Crete","country":"希腊","role":"海岛住宿地","nights":1,"note":"10.08 可能去干尼亚(Chania)或留在伊拉克里翁，待定"}]},"flights":{"outbound":[{"id":"F1","segment":1,"airline":"土耳其航空","airlineEn":"Turkish Airlines","flightNo":"TK171","date":"2026-10-01","dateLabel":"10.01","departTime":"09:20","arriveTime":"15:35","from":"中国香港 T1","to":"伊斯坦布尔","fromCodeInferred":"HKG T1","toCodeInferred":"IST","raw":"土耳其航空 tk171 / 10.01 / 09:20-15:35 / 中国香港t1-伊斯坦布尔","fromPlaceId":"hkg","toPlaceId":"ist"},{"id":"F2","segment":2,"airline":"土耳其航空","airlineEn":"Turkish Airlines","flightNo":"TK1841","date":"2026-10-02","dateLabel":"10.02","departTime":"01:45","arriveTime":"03:10","from":"伊斯坦布尔","to":"雅典国际","fromCodeInferred":"IST","toCodeInferred":"ATH","raw":"土耳其航空 tk1841 / 10.02 / 01:45-03:10 / 伊斯坦布尔-雅典国际","fromPlaceId":"ist","toPlaceId":"ath-airport"}],"return":[{"id":"F3","segment":1,"airline":"土耳其航空","airlineEn":"Turkish Airlines","flightNo":"TK1848","date":"2026-10-10","dateLabel":"10.10","departTime":"11:45","arriveTime":"13:20","from":"雅典国际","to":"伊斯坦布尔","fromCodeInferred":"ATH","toCodeInferred":"IST","raw":"土耳其航空tk1848 / 10.10 / 11:45-13:20 / 雅典国际-伊斯坦布尔","fromPlaceId":"ath-airport","toPlaceId":"ist"},{"id":"F4","segment":2,"airline":"土耳其航空","airlineEn":"Turkish Airlines","flightNo":"TK170","date":"2026-10-10","dateLabel":"10.10","departTime":"15:50","arriveTime":"07:25","arrivesNextDay":true,"arrivalDate":"2026-10-11","from":"伊斯坦布尔","to":"香港 T1","fromCodeInferred":"IST","toCodeInferred":"HKG T1","raw":"土耳其航空 tk170 / 10.10 / 15:50-07:25 / 伊斯坦布尔-香港t1","fromPlaceId":"ist","toPlaceId":"hkg"}],"layovers":[{"id":"L1","city":"伊斯坦布尔","direction":"去程","arriveAt":"2026-10-01 15:35","departAt":"2026-10-02 01:45","windowLabel":"15:35-01:45","approxDurationHours":10.17,"plan":"想趁转机时间在伊斯坦布尔玩一下","status":"想法，未安排具体行程","raw":"10.01- 土耳其转机；15:35-01:45之间 想趁转机时间在伊斯坦布尔玩一下","placeId":"ist"},{"id":"L2","city":"伊斯坦布尔","direction":"回程","arriveAt":"2026-10-10 13:20","departAt":"2026-10-10 15:50","approxDurationHours":2.5,"plan":"机场内短暂转机","status":"无额外安排","placeId":"ist"}]},"accommodations":[{"id":"H1","name":"PAME WILD","city":"雅典","cityId":"athens","checkIn":"2026-10-02","checkOut":"2026-10-04","nights":2,"coveredNights":["2026-10-02","2026-10-03"],"status":"资料中标注为已确定住宿（住PAME WILD）","rooms":null,"price":null,"raw":"10.02 住PAME WILD；10.03 住PAME WILD","note":"10.04 当晚不住雅典，改为夜船前往米洛斯","placeId":"pame-wild"},{"id":"H2","name":"Hotel Apartments Giannis","city":"米洛斯岛","cityId":"milos","checkIn":"2026-10-05","checkOut":"2026-10-07","nights":2,"coveredNights":["2026-10-05","2026-10-06"],"rooms":"1 间房","status":"已预订","cancellationPolicy":"10月5日前可免费取消","price":null,"raw":"Hotel Apartments Giannis / 1间房 / 10月5日 前可免费取消","note":"10.05 凌晨 01:00 抵达阿达马斯港后前往酒店；10.07 当晚不住岛上，改为夜船前往克里特","placeId":"giannis"},{"id":"H3","name":null,"displayName":"待定","city":"伊拉克里翁（克里特岛）","cityId":"heraklion","checkIn":"2026-10-08","checkOut":"2026-10-09","nights":1,"coveredNights":["2026-10-08"],"status":"pending","statusLabel":"尚未预订","isPlaceholder":true,"raw":null,"note":"克里特住宿尚未预订，待定。10.09 当晚睡在返回雅典的夜船上，无需酒店","bookingHint":"需在 10.08 抵达前确定；若 10.08 选择前往干尼亚(Chania)，住宿城市也需相应调整","internalNote":"用户确认：克里特住宿还没有定，先空着","placeId":"crete-hotel"}],"nightsOnBoard":[{"date":"2026-10-04","description":"雅典比雷埃夫斯港 21:00 出发的夜船，10.05 凌晨 01:00 抵达米洛斯（航程 4 小时，抵达后入住酒店）","transportId":"S1"},{"date":"2026-10-07","description":"10.08 凌晨 01:20 从阿达马斯出发的夜船，06:30 抵达伊拉克里翁","transportId":"S2"},{"date":"2026-10-09","description":"21:00 从伊拉克里翁出发，睡在船上，10.10 早 06:30 抵达雅典","transportId":"S3"}],"transport":{"ferries":[{"id":"S1","type":"轮渡","operator":"MINOAN LINES","vessel":"KNOSSOS PALACE","from":"Piraeus（比雷埃夫斯港，雅典）","to":"Adamantas（阿达马斯，米洛斯岛）","departDate":"2026-10-04","departTime":"21:00","arriveDate":"2026-10-05","arriveTime":"01:00","duration":"4h","price":{"amount":44.0,"currency":"EUR","unit":"per person"},"overnight":true,"raw":"KNOSSOS PALACE / MINOAN LINES / 21:00 Piraeus - 01:00 Adamantas / 4h / € 44.00 per person","note":"10.04 晚上坐船去 milos；凌晨1点抵达 milos 后从 adamantas 去酒店","fromPlaceId":"piraeus","toPlaceId":"adamantas"},{"id":"S2","type":"轮渡","operator":"MINOAN LINES","vessel":"FESTOS PALACE","from":"Adamantas（阿达马斯，米洛斯岛）","to":"Heraklion（伊拉克里翁，克里特岛）","departDate":"2026-10-08","departDateLabel":"Thu 08 Oct 2026","departTime":"01:20","arriveDate":"2026-10-08","arriveTime":"06:30","duration":"5h 10min","price":null,"overnight":true,"raw":"Adamantas → Heraklion / Thu 08 Oct 2026 / FESTOS PALACE / MINOAN LINES / 01:20 - 06:30 / 5h 10min","note":"行程表写在 10.07 条目下：晚上坐船去克里特，阿达马斯-伊拉克里翁 01:20-06:30","fromPlaceId":"adamantas","toPlaceId":"heraklion-port"},{"id":"S3","type":"轮渡","operator":"MINOAN LINES","vessel":"KNOSSOS PALACE","from":"Heraklion（伊拉克里翁，克里特岛）","to":"Piraeus（比雷埃夫斯港，雅典）","departDate":"2026-10-09","departDateLabel":"Fri 09 Oct 2026","departTime":"21:00","arriveDate":"2026-10-10","arriveTime":"06:30","duration":"9h 30min","price":null,"overnight":true,"raw":"Heraklion → Piraeus / Fri 09 Oct 2026 / KNOSSOS PALACE / MINOAN LINES / 21:00 - 06:30 / 9h 30min","note":"晚上回雅典，21:00-06:30（10.09 出发）睡在船上；10.10 早晨6点坐船到达雅典","fromPlaceId":"heraklion-port","toPlaceId":"piraeus"}],"trains":[{"id":"T1","status":"无独立火车票预订","note":"梅黛奥拉一日游为巴士团，集合点在雅典火车站（拉里萨站 Larissa Station）外，团名含 train 字样但实际交通工具为空调巴士","relatedTourId":"TOUR1"}],"carRental":[{"id":"C1","city":"米洛斯岛","cityId":"milos","date":"2026-10-05","status":"未预订，仅为想法","raw":"自然醒 在milos逛逛 可租车","note":"10.05 米洛斯自由行日，考虑租车环岛","placeId":"adamantas"}],"publicTransport":[{"id":"P1","city":"雅典","context":"梅黛奥拉一日游集合","detail":"雅典火车站（拉里萨站）外，街对面（西奥多·迪利吉亚尼街 / Theodorou Diligianni St）等候巴士","raw":"出发地点：雅典火车站（拉里萨站）；集合点：巴士将在火车站外街对面等候您。（西奥多·迪利吉亚尼街）","placeId":"larissa"},{"id":"P2","city":"米洛斯岛","context":"阿达马斯港往返酒店","detail":"凌晨1点抵达米洛斯后从 Adamantas 港前往酒店","status":"酒店有免费接送，需提前确认凌晨时段","suggestion":"酒店 Hotel Apartments Giannis 提供免费港口接送（mini-bus），凌晨抵达务必提前邮件/电话确认是否接 01:00 的班次；酒店距港口步行也仅约 3 分钟","placeId":"adamantas"},{"id":"P3","city":"雅典","context":"10.10 比雷埃夫斯港 → 雅典国际机场（赶回程航班）","date":"2026-10-10","isKeyConnection":true,"constraint":{"shipArrival":"06:30 抵达比雷埃夫斯港（Piraeus）","flightDeparture":"11:45 雅典国际机场 TK1848 起飞","recommendedAirportArrival":"09:00-09:45（国际航班建议提前 2-2.5 小时）","availableWindow":"约 5 小时 15 分钟","assessment":"时间充裕，但需留出下船、取行李与找站点的时间；建议 07:30 前出发"},"distanceKm":45,"options":[{"rank":1,"mode":"X96 机场快线巴士","modeEn":"X96 Airport Express Bus","recommended":true,"recommendReason":"港口直达机场、24 小时运营、有专门行李舱，清晨时段路况好、几乎无堵车风险，且最省钱","route":"比雷埃夫斯港 → 雅典国际机场（直达，无需换乘）","durationMin":"60-90（清晨路况顺畅时约 60 分钟）","price":{"amount":5.5,"currency":"EUR","unit":"单程/人","note":"另有资料标注 6 欧，以现场票价为准；6-18 岁、25 岁以下学生、65 岁以上半价 3 欧"},"frequency":"白天每 15-40 分钟一班，24 小时运营","boardingPoint":"港口主门区域，找写有 ΛΕΩΦΟΡΕΙΟ（希腊语「巴士」）的蓝色指示牌","ticketing":"站点售票机、售票亭购买，或上车购买（不加价）；机场快线巴士支持非接触式银行卡支付","dropOff":"机场出发层（Departures Terminal）","suggestedDepartTime":"07:30","pros":["直达无换乘","行李舱空间充足","最便宜","清晨发车路况佳"],"cons":["旺季行李舱可能满","受路况影响（清晨风险低）"],"durationLabel":"60-90 分钟（清晨路况顺畅时约 60 分钟）","placeId":"x96-stop"},{"rank":2,"mode":"地铁 3 号线（蓝线）直达","modeEn":"Metro Line 3 (Blue Line)","recommended":false,"recommendReason":"完全不受路况影响、时间最可预测；但发车间隔较长，且需从港口步行至地铁站","route":"Piraeus 地铁站 → 雅典国际机场（3 号线已直通机场，无需换乘）","durationMin":"60-80","price":{"amount":9,"currency":"EUR","unit":"单程/人","note":"往返 16 欧；机场专用票，有效期 90 分钟"},"frequency":"约每 36 分钟一班（务必提前查当日首班车时刻）","boardingPoint":"从轮渡码头步行至 Piraeus 地铁站约 5-15 分钟（取决于靠泊闸口 E1-E12）","ticketing":"站内售票机或售票窗口","suggestedDepartTime":"07:30","pros":["不受堵车影响","时间可预测","全年可靠"],"cons":["发车间隔长达 36 分钟","大件行李在车厢内不便","需先步行至地铁站"],"alternativeRoute":"若 3 号线直达班次时间不合适，可走 1 号线（绿线）至 Monastiraki 换 3 号线，全程约 70-90 分钟，票价同为机场票 9 欧","durationLabel":"60-80 分钟","placeId":"piraeus-metro"},{"rank":3,"mode":"出租车","modeEn":"Taxi","recommended":false,"recommendReason":"门到门最省心，行李多或想多睡会儿时值得；缺点是最贵","route":"港口出租车候客区 → 机场（固定费率）","durationMin":"40-60","price":{"amount":null,"currency":"EUR","range":"约 50-70","note":"白天约 50-55 欧，夜间 00:00-05:00 约 65-70 欧。10.10 早 7 点后出发按白天费率"},"boardingPoint":"各轮渡航站楼外的出租车候客区","ticketing":"现场乘车","suggestedDepartTime":"08:30","pros":["门到门","适合行李多或两人同行分摊","无需找站点"],"cons":["最贵","仍受路况影响"],"tips":"固定费率仅适用于直达机场。若司机提议中途「顺路停一下」，礼貌拒绝，否则会改为打表计费","durationLabel":"40-60 分钟","placeId":"piraeus"},{"rank":4,"mode":"预约私人接送","modeEn":"Private Transfer","recommended":false,"recommendReason":"提前锁定车辆与车型，适合完全不想操心的情况","durationMin":"40-70","price":{"amount":null,"currency":"EUR","range":"约 45-120","note":"视车型与人数而定"},"ticketing":"需提前在线预订","pros":["举牌接站、车辆有保障","价格可提前锁定"],"cons":["比出租车更贵","需提前预订"],"durationLabel":"40-70 分钟","placeId":"piraeus"}],"actionPlan":{"recommended":"X96 机场快线巴士","timeline":[{"time":"06:30","action":"KNOSSOS PALACE 抵达比雷埃夫斯港，下船取行李"},{"time":"06:30-07:15","action":"走出码头，按蓝色 ΛΕΩΦΟΡΕΙΟ 指示牌找到港口主门的 X96 站点（港区较大，预留充足步行时间）"},{"time":"07:30 前","action":"上车出发（车上或站点购票，约 5.5 欧/人）"},{"time":"约08:30-09:00","action":"抵达雅典国际机场出发层"},{"time":"09:00-11:45","action":"办理值机、托运、安检，从容登机"}],"buffer":"按此计划到机场仍有约 2.5-3 小时余量，可覆盖下船延误或堵车"},"warnings":["比雷埃夫斯港区面积很大，靠泊闸口（E1-E12）不同，步行距离差异明显，下船后先确认自己在哪个闸口","若船班延误超过 1.5 小时，建议直接改乘出租车以保证赶上 11:45 的航班","地铁与 X96 使用不同票种，机场专用票不可混用"],"sources":["https://luggagedrop.gr/how-to-get-from-athens-airport-to-piraeus-port","https://www.athens-airport-transport.com/en/express-bus","https://getfromto.com/?p=4241/"],"dataNote":"此段交通为按用户要求新增的规划建议，非原始 PDF 资料内容；票价与班次为 2026 年 9 月检索所得，出行前请再核对官方信息","fromPlaceId":"piraeus","toPlaceId":"ath-airport"}],"otherIdeas":[{"id":"IDEA1","city":"米洛斯岛","date":"2026-10-07","activity":"皮划艇","status":"现场再看，未预订","raw":"maybe可以试一下皮划艇（这个到时候去在现场看）"}]},"tours":[{"id":"TOUR1","name":"梅黛奥拉一日游（官方旅行团）","nameEn":"1-Day Meteora Tour from Athens","date":"2026-10-03","city":"雅典 → 卡兰巴卡（梅黛奥拉）→ 雅典","bookingUrl":"https://meteora.com/zh/tour/1-day-meteora-tour-athens-train/","bookingAdvice":"建议从这里买（官方旅行团）","status":"planned","statusLabel":"准备预订","statusNote":"尚未预订，行程按官方链接的路线规划","officialTitle":"1 天 迈泰奥拉修道院之旅，从雅典出发，含当地导游、海滨景点和希腊午餐","operator":"meteora.com（当地旅行社）","frequency":"每日发团","totalDuration":"13.5 小时","tourLanguage":"英语 / 西班牙语现场导游（另有 +10 种语言可选）","transportMode":"空调巴士（含免费 WiFi 与 USB 充电），非火车","price":{"tour":{"amount":65,"currency":"EUR","label":"团费/人"},"lunchOptional":{"amount":12,"currency":"EUR","label":"希腊午餐（可选，每人额外收费，含一瓶水）"},"monasteryTicket":{"amount":5,"currency":"EUR","label":"修道院门票/人","paymentNote":"仅限现金，需自备"},"estimatedTotalPerPerson":{"amount":82,"currency":"EUR","label":"含午餐与门票的预估单人总价"},"raw":"65欧 +12欧 午餐；修道院门票每人 5 欧（仅限现金）"},"schedule":[{"time":"08:45","detail":"建议抵达集合点（官方要求至少提前 15 分钟）","isBuffer":true},{"time":"09:00","detail":"雅典火车站（拉里萨站）出发，乘空调巴士前往卡兰巴卡"},{"time":"途中","detail":"在海滨巴士站餐厅「Kamena Vourla」短暂休息，正对面可清晰看到埃维亚岛"},{"time":"13:30","detail":"抵达卡兰巴卡，当地导游在此等候接团"},{"time":"13:30 后","detail":"先短暂餐饮停留（可选含午餐），餐厅位于巨树下、可俯瞰壮丽景色"},{"time":"约14:00-18:15","detail":"4 小时以上梅黛奥拉全景导览：参观全部 6 座修道院，入内参观最受欢迎的 3 座，并探访巴多瓦斯隐士洞穴"},{"time":"18:15","detail":"从卡兰巴卡出发返回雅典"},{"time":"途中","detail":"在卡梅纳·武尔拉海边额外茶点停留，可自选晚餐"},{"time":"约22:45","detail":"抵达雅典"}],"meetingPoint":{"departTime":"09:00","arriveEarly":"请至少在巴士出发前 15 分钟到达集合点","departPlace":"雅典火车站（拉里萨站 Larissa Station）","meetingDetail":"巴士将在火车站外街对面等候（西奥多·迪利吉亚尼街 / Theodorou Diligianni St）","busSign":"巴士车窗和侧面将有 “METEORA THRONES – TRAVEL CENTER” 标志","transferNote":"不含雅典酒店至集合点的接送，需自行前往","placeId":"larissa"},"included":["从雅典往返空调巴士交通","巴士提供免费 WiFi 和 USB 充电器","受过高等教育、会说英语或西班牙语的当地导游","全面综合的 4 小时梅特奥拉之旅","参观所有 6 座修道院（其中 3 座最受欢迎的内部参观）","参观隐士洞穴","停留以欣赏全景和拍照","在当地餐厅享用午餐（如选择此选项，每人额外 12 欧，赠送一瓶水）","梅特奥拉当地地图","免费智能语音导览（含中文，共 12 种语言）"],"notIncluded":["从雅典酒店接送至雅典集合点","修道院门票（每人 5 欧元）- 仅限现金","持证导游的圣修道院内部导览（提供免费语音导览）","午餐（如不选择额外付费午餐）","小费（自愿）"],"dressCode":{"required":true,"summary":"进入修道院需穿着得体","women":"需穿及膝或更长的裙子；不可穿裤子、短裤或无袖衬衫","men":"禁止无袖服装；短裤不得短于膝盖","tip":"建议女士自备一条可随身携带的长裙或围裹裙"},"cancellationPolicy":{"freeUntil":"行程开始前 24 小时以上","refund":"全额退款","penalty":"行程开始前 24 小时内取消，每人收取 100% 罚金（不退款）","deadlineForThisTrip":"2026-10-02 09:00"},"highlights":["上午 9:00 出发，无需早起，乘坐空调、WiFi 和 USB 巴士——仅此一家","往返雅典途中短暂停留","返程途中在卡梅纳·武尔拉（Kamena Vourla）海边享受额外茶点停留，可选晚餐","享受海滨休息站，而不是拥挤的高速公路区域","该地区最好的 4 小时以上迈泰奥拉全景游","专业、当地、英语或西班牙语、现场导游","12 种语言的免费智能语音导览","参观所有 6 座修道院，参观其中最受欢迎的 3 座","充足的拍照点，欣赏绝美景色 - 探索隐藏的隐士洞穴","可选希腊午餐，品尝当地风味和菜肴"],"tips":["无需打印凭证，手机出示即可","无需巴士票，只需告知司机您的姓名即可","请携带耳机和智能手机以使用语音导览"],"internalNote":"用户确认：还没有定，但准备定了","placeId":"meteora","routePlaceIds":["larissa","kamena-vourla","kalambaka","meteora","larissa"]},{"id":"TOUR2","name":"米洛斯岛小团体全日游轮浮潜和午餐","nameEn":"Milos Small Group Full Day Cruise with Snorkelling and Lunch","date":"2026-10-06","startTime":"10:00","startTimeLabel":"2026年10月6日 · 上午10:00","city":"米洛斯岛","status":"confirmed","statusLabel":"已预订","booking":{"referenceNo":"1448138439","pax":"x 2 位成人","total":{"amount":373.68,"currency":"USD","raw":"US$373.68"},"expiryDate":"2026-10-04","expiryRaw":"到期日期 2026年10月4日","bookingDetailsUrl":"https://cn.tripadvisor.com/AttractionBookingDetails-a1448138439-a_reservationId.G9Ha__2D__2BH7D7VVYPDFR-a_reservationToken.6ac6y45c72owkn2bf83lx799m","reservationId":"G9Ha__2D__2BH7D7VVYPDFR","reservationToken":"6ac6y45c72owkn2bf83lx799m","platform":"TripAdvisor","urlNote":"用户提供的订单详情页链接，可直接打开查看凭证"},"reviewUrl":"https://cn.tripadvisor.com/AttractionProductReview-g494953-d15883516-Milos_Small_Group_Full_Day_Cruise_with_Snorkelling_and_Lunch-Milos_Cyclades_South_.html","meetingPoint":{"address":"PCFW+PH Adamantas, PCFW+PH9 Adamantas, Greece","detail":"集合点位于 Polco 帆船前面，通常停泊在阿达玛斯港的 MENTOR CAFE 对面。寻找在港口高高飘扬的 POLCO 帆船旗帜。","returnInfo":"此活动将在会面地点结束","placeId":"polco"},"stops":[{"order":1,"type":"经过","name":"Klima","location":"Klima, Milos, Cyclades, South Aegean","duration":null,"description":"克里米亚（Klima）是米洛斯岛（Milos）的第一个首都，也是在那里发现金星米洛斯（Venus de Milo）雕像的地方。当您为色彩缤纷的渔村拍照时，您也可以了解有关该岛的一些历史事实，这是我们导游的一部分。","placeId":"klima"},{"order":2,"type":"经过","name":"Cape Vani","location":"Cape Vani, 84800 Greece","duration":null,"description":"作为 Adamas 海湾导游的一部分，我们将通过19世纪的铁锰矿。我们将有机会拍摄可爱的照片，因为我们的多语种指南将告诉我们这个壮观区域的故事。天气允许有时我们在这里快速游泳。","placeId":"cape-vani"},{"order":3,"type":"停留","name":"Kalogries Beach","location":"Kalogries Beach, Greece","duration":"30 分钟","description":"这是我们的第一次游泳停留，持续约30分钟。我们将游泳和浮潜，并享用清淡的早午餐。","placeId":"kalogries"},{"order":4,"type":"停留","name":"Sikia Beach","location":"Sikia Beach, Sikia, 848 00 Greece","duration":"1 小时","durationNote":"描述中写停留时间约为 2 小时，官方字段标注 1 小时（原始资料两处不一致，均保留）","description":"我们在 Sikia 的停留时间约为2小时。我们锚定在洞穴南部的受保护海湾，我们将首先游泳，并提供面具和脚蹼。然后我们将用我们的小艇进入 Sykia 洞穴并探索该地区。当我们回到船上时，美味的自制小吃将伴随着传统的茴香酒和新鲜饮料。","placeId":"sikia"},{"order":5,"type":"停留","name":"Kleftiko Beach","location":"Kleftiko Beach, Greece","duration":"1 小时 30 分钟","description":"我们将有机会与我们提供的浮潜装备一起游泳，使用我们的小艇参观 Kleftiko 洞穴并拍照，无论是在上面还是在水下，最后我们将提供新鲜烹制的午餐和饮料。","placeId":"kleftiko"},{"order":6,"type":"停留","name":"Agios Dimitrios Beach","location":"Παραλία Άγιος Δημήτριος, Μήλος 848 00, Greece","duration":"20 分钟","description":"在返回阿达玛斯港之前，我们将在 Agios Dimitrios 湾进行短暂的 20 分钟游泳停留，欣赏海湾对面的 Milos 火山口、Plaka 和 Tripiti 的美丽景色。","placeId":"agios-dimitrios"}],"placeId":"adamantas"}],"dailyItinerary":[{"day":1,"date":"2026-10-01","dateLabel":"10.01","weekday":"周四","title":"中国香港 → 伊斯坦布尔（土耳其转机）","locations":["中国香港","伊斯坦布尔"],"primaryCityId":"istanbul","stayType":"夜间转机 / 机上","accommodationId":null,"activities":[{"time":"09:20-15:35","type":"flight","refId":"F1","title":"土耳其航空 TK171 中国香港T1 → 伊斯坦布尔","placeId":"hkg"},{"time":"15:35-01:45","type":"layover","refId":"L1","title":"伊斯坦布尔转机","detail":"想趁转机时间在伊斯坦布尔玩一下","status":"待安排","placeId":"ist"}],"notes":["转机窗口约 10 小时，是否出机场进城需提前确认签证/过境政策与时间余量"]},{"day":2,"date":"2026-10-02","dateLabel":"10.02","weekday":"周五","title":"抵达雅典 · 雅典卫城 & 国家考古博物馆","locations":["伊斯坦布尔","雅典"],"primaryCityId":"athens","stayType":"酒店","accommodationId":"H1","accommodationName":"PAME WILD","activities":[{"time":"01:45-03:10","type":"flight","refId":"F2","title":"土耳其航空 TK1841 伊斯坦布尔 → 雅典国际","placeId":"ath-airport"},{"time":"白天","type":"sightseeing","title":"雅典市内游览","detail":"期望景点：雅典卫城相关众神庙 / 国家考古博物馆","wishlist":["雅典卫城相关众神庙","国家考古博物馆"],"wishlistPlaceIds":["acropolis","archaeological-museum"]}],"notes":["凌晨 3:10 落地雅典，当天体力需预留缓冲"]},{"day":3,"date":"2026-10-03","dateLabel":"10.03","weekday":"周六","title":"雅典 - 梅黛奥拉 - 雅典（一日往返）","locations":["雅典","卡兰巴卡 / 梅黛奥拉"],"primaryCityId":"meteora","stayType":"酒店","accommodationId":"H1","accommodationName":"PAME WILD","activities":[{"time":"08:45","type":"tour","refId":"TOUR1","title":"抵达雅典火车站（拉里萨站）集合点","detail":"官方要求至少提前 15 分钟；集合点在火车站外街对面（西奥多·迪利吉亚尼街），认车身「METEORA THRONES – TRAVEL CENTER」标志","placeId":"larissa"},{"time":"09:00","type":"tour","refId":"TOUR1","title":"乘空调巴士出发前往卡兰巴卡","detail":"车上有免费 WiFi 与 USB 充电；无需打印凭证，告知司机姓名即可","placeId":"larissa"},{"time":"途中","type":"tour","refId":"TOUR1","title":"Kamena Vourla 海滨餐厅休息停留","detail":"正对面可清晰看到埃维亚岛，比高速服务区体验好得多","placeId":"kamena-vourla"},{"time":"13:30","type":"tour","refId":"TOUR1","title":"抵达卡兰巴卡，当地导游接团 + 午餐停留","detail":"餐厅位于巨树下、可俯瞰景色；午餐为可选项（每人 12 欧，含一瓶水）","placeId":"kalambaka"},{"time":"约14:00-18:15","type":"tour","refId":"TOUR1","title":"梅黛奥拉 4 小时以上全景导览","detail":"参观全部 6 座修道院、入内参观最受欢迎的 3 座，并探访本团独有的巴多瓦斯隐士洞穴；修道院门票每人 5 欧需现金自付","placeId":"meteora"},{"time":"18:15-22:45","type":"tour","refId":"TOUR1","title":"返回雅典","detail":"途中在卡梅纳·武尔拉海边额外茶点停留，可自选晚餐","placeId":"kamena-vourla"}],"notes":["全天 13.5 小时长线，携带耳机和手机用于免费中文语音导览","费用：团费 65 欧 + 午餐 12 欧（可选）+ 修道院门票 5 欧（现金，必付）≈ 82 欧/人","着装要求：女士需及膝长裙，不可穿裤子/短裤/无袖；男士禁无袖、短裤不得短于膝盖","需自行前往集合点（不含酒店接送）","取消政策：行程前 24 小时以上可全额退款，24 小时内不退款"],"cashNeeded":{"amount":10,"currency":"EUR","reason":"2 人修道院门票，仅收现金"}},{"day":4,"date":"2026-10-04","dateLabel":"10.04","weekday":"周日","title":"雅典逛逛 · 夜船前往米洛斯","locations":["雅典","比雷埃夫斯港"],"primaryCityId":"athens","stayType":"夜船（船上）","accommodationId":null,"activities":[{"time":"白天","type":"sightseeing","title":"雅典自由逛","detail":"参考小红书笔记安排行程","reference":"referenceLinks.athens2days"},{"time":"21:00","type":"ferry","refId":"S1","title":"MINOAN LINES KNOSSOS PALACE，Piraeus 21:00 → Adamantas 01:00（4h，€44/人）","placeId":"piraeus"}],"notes":["晚上坐船去 milos，当晚不住雅典酒店"]},{"day":5,"date":"2026-10-05","dateLabel":"10.05","weekday":"周一","title":"米洛斯 Day1 自由行","locations":["米洛斯岛"],"primaryCityId":"milos","stayType":"酒店","accommodationId":"H2","accommodationName":"Hotel Apartments Giannis","activities":[{"time":"01:00","type":"ferry-arrival","refId":"S1","title":"凌晨 1 点抵达米洛斯，从 Adamantas 前往酒店","placeId":"adamantas"},{"time":"自然醒","type":"free","title":"在 milos 逛逛（day1 自由行）","detail":"可租车","refId":"C1"}],"notes":["酒店 Hotel Apartments Giannis 免费取消截止日为 10 月 5 日","米洛斯跑船游订单到期日为 10 月 4 日，需在此前处理"]},{"day":6,"date":"2026-10-06","dateLabel":"10.06","weekday":"周二","title":"米洛斯全日跑船游 + 浮潜 + 午餐","locations":["米洛斯岛"],"primaryCityId":"milos","stayType":"酒店","accommodationId":"H2","accommodationName":"Hotel Apartments Giannis","activities":[{"time":"10:00","type":"tour","refId":"TOUR2","title":"阿达马斯港集合出发（Polco 帆船前，MENTOR CAFE 对面）","placeId":"polco"},{"time":"全天","type":"tour","refId":"TOUR2","title":"航线：Klima → Cape Vani → Kalogries Beach → Sikia Beach → Kleftiko Beach → Agios Dimitrios","detail":"含浮潜装备、早午餐、船上现做午餐与饮料，活动在集合地点结束"}],"notes":["已预订，参考号 1448138439，2 位成人，总计 US$373.68"]},{"day":7,"date":"2026-10-07","dateLabel":"10.07","weekday":"周三","title":"米洛斯自由活动 · 夜船前往克里特","locations":["米洛斯岛"],"primaryCityId":"milos","stayType":"夜船（船上，10.08 凌晨发船）","accommodationId":null,"activities":[{"time":"白天","type":"free","title":"皮划艇（maybe）","detail":"这个到时候去在现场看","refId":"IDEA1","status":"待定"},{"time":"下午","type":"free","title":"下午再逛逛"},{"time":"次日 01:20","type":"ferry","refId":"S2","title":"MINOAN LINES FESTOS PALACE，Adamantas 01:20 → Heraklion 06:30（5h10min）","detail":"晚上坐船去克里特，实际发船时间为 10.08 凌晨 01:20","placeId":"adamantas"}],"notes":["当晚不住岛上酒店，需安排好退房与港口等候时间"]},{"day":8,"date":"2026-10-08","dateLabel":"10.08","weekday":"周四","title":"抵达克里特 · 干尼亚 or 伊拉克里翁（待定）","locations":["伊拉克里翁（克里特岛）"],"primaryCityId":"heraklion","stayType":"酒店（待预订）","accommodationId":"H3","accommodationName":null,"activities":[{"time":"06:30","type":"ferry-arrival","refId":"S2","title":"抵达伊拉克里翁港","placeId":"heraklion-port"},{"time":"全天","type":"undecided","title":"干尼亚 or 伊拉克里翁 待定","options":["干尼亚 Chania","伊拉克里翁 Heraklion"],"status":"待定","optionPlaceIds":["chania","heraklion-port"]}],"notes":["克里特住宿尚未在资料中确定，需补充"]},{"day":9,"date":"2026-10-09","dateLabel":"10.09","weekday":"周五","title":"伊拉克里翁博物馆 · 夜船返回雅典","locations":["伊拉克里翁（克里特岛）"],"primaryCityId":"heraklion","stayType":"夜船（船上）","accommodationId":null,"activities":[{"time":"白天","type":"sightseeing","title":"伊拉克里翁 去一下博物馆","detail":"原文未指定具体馆名","placeId":"heraklion-museum"},{"time":"21:00","type":"ferry","refId":"S3","title":"MINOAN LINES KNOSSOS PALACE，Heraklion 21:00 → Piraeus 06:30（9h30min）","detail":"晚上回雅典，睡在船上","placeId":"heraklion-port"}],"notes":[]},{"day":10,"date":"2026-10-10","dateLabel":"10.10","weekday":"周六","title":"抵达雅典 · 返程回中国香港","locations":["雅典","伊斯坦布尔","中国香港"],"primaryCityId":"athens","stayType":"机上","accommodationId":null,"activities":[{"time":"06:30","type":"ferry-arrival","refId":"S3","title":"早晨 6:30 抵达雅典比雷埃夫斯港（Piraeus）","detail":"下船取行李，先确认自己所在的靠泊闸口（E1-E12）","placeId":"piraeus"},{"time":"06:30-07:30","type":"transfer","refId":"P3","title":"港口 → 雅典国际机场（推荐 X96 机场快线巴士）","detail":"港口主门区域找蓝色 ΛΕΩΦΟΡΕΙΟ 指示牌，约 5.5 欧/人，直达无换乘，24 小时运营；备选：地铁 3 号线直达（9 欧）或出租车（约 50-55 欧）","isKeyConnection":true,"placeId":"x96-stop"},{"time":"约08:30-09:00","type":"transfer","refId":"P3","title":"抵达雅典国际机场出发层，办理值机与托运","placeId":"ath-airport"},{"time":"11:45-13:20","type":"flight","refId":"F3","title":"土耳其航空 TK1848 雅典国际 → 伊斯坦布尔","placeId":"ath-airport"},{"time":"13:20-15:50","type":"layover","refId":"L2","title":"伊斯坦布尔机场转机（约 2.5 小时）","placeId":"ist"},{"time":"15:50-07:25","type":"flight","refId":"F4","title":"土耳其航空 TK170 伊斯坦布尔 → 香港T1","detail":"次日（10.11）早 07:25 抵达香港","placeId":"ist"}],"notes":["下船到起飞有约 5 小时 15 分钟余量，按 07:30 出发的计划到机场仍有 2.5-3 小时缓冲","若船班延误超过 1.5 小时，建议直接改乘出租车保证赶上航班","比雷埃夫斯港区很大，下船后的步行距离可能比预期长"]}],"referenceLinks":[{"id":"athens2days","title":"如果你只留给了雅典2天时间… - 佐伊Zoey | 小红书","url":"https://www.xiaohongshu.com/discovery/item/6a3e509e0000000020039200?source=webshare&xhsshare=pc_web&xsec_token=ABbxFSddRXBoaondwnT4iFxgbd0PJVIos68N6s_My5cKE=&xsec_source=pc_share","shareCode":"tR7l8Z8abIWCJ0p","usage":"可参考上面的内容安排行程（雅典逛逛）","relatedDate":"2026-10-04"},{"id":"meteoraTour","title":"梅黛奥拉官方一日游预订页","url":"https://meteora.com/zh/tour/1-day-meteora-tour-athens-train/","usage":"建议从这里买官方旅行团","relatedDate":"2026-10-03"},{"id":"milosCruise","title":"Milos Small Group Full Day Cruise with Snorkelling and Lunch - TripAdvisor","url":"https://cn.tripadvisor.com/AttractionProductReview-g494953-d15883516-Milos_Small_Group_Full_Day_Cruise_with_Snorkelling_and_Lunch-Milos_Cyclades_South_.html","usage":"米洛斯跑船游产品页","relatedDate":"2026-10-06"}],"bookingStatusSummary":{"confirmed":[{"item":"去程航班 TK171 / TK1841","date":"2026-10-01 ~ 10-02"},{"item":"回程航班 TK1848 / TK170","date":"2026-10-10"},{"item":"轮渡 Piraeus → Adamantas（KNOSSOS PALACE，€44/人）","date":"2026-10-04"},{"item":"轮渡 Adamantas → Heraklion（FESTOS PALACE）","date":"2026-10-08"},{"item":"轮渡 Heraklion → Piraeus（KNOSSOS PALACE）","date":"2026-10-09"},{"item":"米洛斯住宿 Hotel Apartments Giannis（1 间房）","date":"2026-10-05 ~ 10-07"},{"item":"米洛斯全日游轮浮潜（参考号 1448138439，US$373.68）","date":"2026-10-06","bookingUrl":"https://cn.tripadvisor.com/AttractionBookingDetails-a1448138439-a_reservationId.G9Ha__2D__2BH7D7VVYPDFR-a_reservationToken.6ac6y45c72owkn2bf83lx799m"},{"item":"雅典住宿 PAME WILD","date":"2026-10-02 ~ 10-04"}],"planned":[{"item":"梅黛奥拉一日游（65 欧 + 可选午餐 12 欧）","note":"准备预订，行程已按官方路线规划","date":"2026-10-03","bookingUrl":"https://meteora.com/zh/tour/1-day-meteora-tour-athens-train/"},{"item":"10.10 港口 → 机场 X96 机场快线巴士","note":"无需预订，现场购票即可；方案已规划","date":"2026-10-10"}],"pending":[{"item":"克里特（伊拉克里翁）10.08 住宿","note":"还没定，先空着","date":"2026-10-08"},{"item":"伊斯坦布尔转机期间市区行程","note":"有「想玩一下」的想法，未安排具体行程","date":"2026-10-01"},{"item":"米洛斯租车","note":"仅记录「可租车」，未预订","date":"2026-10-05"},{"item":"米洛斯皮划艇","note":"现场再看","date":"2026-10-07"},{"item":"10.08 干尼亚 or 伊拉克里翁 路线选择","note":"待定","date":"2026-10-08"},{"item":"伊拉克里翁具体博物馆","note":"仅记录「去一下博物馆」，未指定具体馆名","date":"2026-10-09"},{"item":"米洛斯凌晨接送","note":"酒店提供免费港口接送，需提前确认是否接 01:00 抵达的班次（步行也仅 3 分钟）","date":"2026-10-05"}]},"keyDeadlines":[{"date":"2026-10-02","time":"09:00","item":"梅黛奥拉一日游免费取消截止（行程开始前 24 小时）","refId":"TOUR1"},{"date":"2026-10-04","item":"米洛斯全日游轮订单到期日","refId":"TOUR2"},{"date":"2026-10-05","item":"Hotel Apartments Giannis 免费取消截止（10月5日前可免费取消）","refId":"H2"}],"cashNotes":[{"date":"2026-10-03","item":"梅黛奥拉修道院门票","amount":"5 欧/人（2 人共 10 欧）","reason":"仅收现金，需提前备好零钞"}],"dataGaps":["雅典 PAME WILD 未提供房型、价格、地址与预订号","克里特岛 10.08 住宿尚未预订（暂留空）","轮渡 S2、S3 未提供票价与预订号","航班未提供订单号、舱位、行李额","10.09 伊拉克里翁“博物馆”未指定具体名称（可能指克里特考古博物馆）","米洛斯租车与皮划艇均无供应商信息","伊斯坦布尔转机是否出关、如何安排交通未定","米洛斯 10.05 凌晨从港口到酒店的交通方式未确定"],"dataNotes":["年份 2026 由原始资料中的船票（Thu 08 Oct 2026 / Fri 09 Oct 2026）与跑船游订单（2026年10月6日）确认，星期与 2026 年日历一致","原文 10.09 条目写“21:00-06:30（10.09）睡在船上”，结合船票 Fri 09 Oct 2026 判定为 10.09 晚 21:00 出发、10.10 早 06:30 抵达雅典","Adamantas 在资料中另有“阿达马斯”“Adamas”写法，均指米洛斯岛主港","跑船游 Sikia Beach 停留时长在描述（约2小时）与字段（1小时）间不一致，两者均已保留","机场三字码为推断值，字段名含 Inferred 后缀以示区分"],"places":[{"id":"hkg","name":"香港国际机场 T1","nameEn":"Hong Kong International Airport Terminal 1","type":"airport","city":"中国香港","coords":[22.316,113.9365],"note":"去程出发 / 回程抵达","lat":22.316,"lng":113.9365,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=22.316,113.9365","apple":"https://maps.apple.com/?ll=22.316,113.9365&q=Hong%20Kong%20International%20Airport%20Terminal%201","amap":"https://uri.amap.com/marker?position=113.9365,22.316&name=Hong%20Kong%20International%20Airport%20Terminal%201"},"mapQuery":"Hong Kong International Airport Terminal 1"},{"id":"ist","name":"伊斯坦布尔机场","nameEn":"Istanbul Airport (IST)","type":"airport","city":"伊斯坦布尔","coords":[41.2753,28.7519],"note":"去程与回程转机","lat":41.2753,"lng":28.7519,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=41.2753,28.7519","apple":"https://maps.apple.com/?ll=41.2753,28.7519&q=Istanbul%20Airport%20(IST)","amap":"https://uri.amap.com/marker?position=28.7519,41.2753&name=Istanbul%20Airport%20(IST)"},"mapQuery":"Istanbul Airport (IST)"},{"id":"ath-airport","name":"雅典国际机场","nameEn":"Athens International Airport Eleftherios Venizelos (ATH)","type":"airport","city":"雅典","coords":[37.9364,23.9445],"note":"10.02 落地 / 10.10 离境","lat":37.9364,"lng":23.9445,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9364,23.9445","apple":"https://maps.apple.com/?ll=37.9364,23.9445&q=Athens%20International%20Airport%20Eleftherios%20Venizelos%20(ATH)","amap":"https://uri.amap.com/marker?position=23.9445,37.9364&name=Athens%20International%20Airport%20Eleftherios%20Venizelos%20(ATH)"},"mapQuery":"Athens International Airport Eleftherios Venizelos (ATH)"},{"id":"pame-wild","name":"PAME WILD","nameEn":"PAME Wild Hotel","type":"hotel","city":"雅典","address":"20 Ioulianou, Athens 10682, Greece","coords":[37.9909,23.731],"phone":"+30 6973506770","website":"http://pamewild.com","note":"市中心，步行可达国家考古博物馆与拉里萨火车站；维多利亚地铁站 300m","checkInTime":"14:00","checkOutTime":"11:00","lat":37.9909,"lng":23.731,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9909,23.731","apple":"https://maps.apple.com/?ll=37.9909,23.731&q=PAME%20Wild%20Hotel","amap":"https://uri.amap.com/marker?position=23.731,37.9909&name=PAME%20Wild%20Hotel"},"mapQuery":"PAME Wild Hotel"},{"id":"giannis","name":"Hotel Apartments Giannis","nameEn":"Hotel Apartments Giannis","type":"hotel","city":"米洛斯岛 阿达马斯","address":"Adamas, Adamantas (Milos) 84800, South Aegean, Greece","coords":[36.728,24.4462],"phone":"+30 228 702 2204","note":"距阿达马斯港步行约 3 分钟；酒店提供免费港口接送（mini-bus）","checkInTime":"14:00","checkOutTime":"11:00","lat":36.728,"lng":24.4462,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.728,24.4462","apple":"https://maps.apple.com/?ll=36.728,24.4462&q=Hotel%20Apartments%20Giannis","amap":"https://uri.amap.com/marker?position=24.4462,36.728&name=Hotel%20Apartments%20Giannis"},"mapQuery":"Hotel Apartments Giannis"},{"id":"crete-hotel","name":"克里特住宿（待定）","type":"hotel","city":"伊拉克里翁（克里特岛）","isPlaceholder":true,"mapQuery":"Heraklion Crete Greece hotels","note":"尚未预订；若改去干尼亚需相应调整","mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=Heraklion+Crete+Greece+hotels"}},{"id":"piraeus","name":"比雷埃夫斯港","nameEn":"Piraeus Port","type":"port","city":"雅典","coords":[37.9475,23.6362],"note":"雅典门户港；闸口 E1-E12 分布很广，登船前先确认自己的闸口","lat":37.9475,"lng":23.6362,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9475,23.6362","apple":"https://maps.apple.com/?ll=37.9475,23.6362&q=Piraeus%20Port","amap":"https://uri.amap.com/marker?position=23.6362,37.9475&name=Piraeus%20Port"},"mapQuery":"Piraeus Port"},{"id":"adamantas","name":"阿达马斯港","nameEn":"Adamantas Port, Milos","type":"port","city":"米洛斯岛","coords":[36.7233,24.4483],"note":"米洛斯主港，所有轮渡停靠点","lat":36.7233,"lng":24.4483,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.7233,24.4483","apple":"https://maps.apple.com/?ll=36.7233,24.4483&q=Adamantas%20Port,%20Milos","amap":"https://uri.amap.com/marker?position=24.4483,36.7233&name=Adamantas%20Port,%20Milos"},"mapQuery":"Adamantas Port, Milos"},{"id":"heraklion-port","name":"伊拉克里翁港","nameEn":"Heraklion Port","type":"port","city":"伊拉克里翁（克里特岛）","coords":[35.3447,25.1519],"note":"克里特岛主港","lat":35.3447,"lng":25.1519,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=35.3447,25.1519","apple":"https://maps.apple.com/?ll=35.3447,25.1519&q=Heraklion%20Port","amap":"https://uri.amap.com/marker?position=25.1519,35.3447&name=Heraklion%20Port"},"mapQuery":"Heraklion Port"},{"id":"larissa","name":"雅典火车站（拉里萨站）","nameEn":"Athens Larissa Railway Station","type":"meeting","city":"雅典","coords":[37.9922,23.7206],"address":"Theodorou Diligianni St, Athens","note":"梅黛奥拉一日游集合点：巴士在火车站外街对面（西奥多·迪利吉亚尼街）等候，车身有 METEORA THRONES – TRAVEL CENTER 标志","lat":37.9922,"lng":23.7206,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9922,23.7206","apple":"https://maps.apple.com/?ll=37.9922,23.7206&q=Athens%20Larissa%20Railway%20Station","amap":"https://uri.amap.com/marker?position=23.7206,37.9922&name=Athens%20Larissa%20Railway%20Station"},"mapQuery":"Athens Larissa Railway Station"},{"id":"polco","name":"Polco 帆船集合点","nameEn":"Polco Sailing Boat, Adamantas Port","type":"meeting","city":"米洛斯岛 阿达马斯","coords":[36.7231,24.4478],"address":"PCFW+PH Adamantas, Greece","note":"跑船游集合点：MENTOR CAFE 对面，找高高飘扬的 POLCO 帆船旗帜","lat":36.7231,"lng":24.4478,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.7231,24.4478","apple":"https://maps.apple.com/?ll=36.7231,24.4478&q=Polco%20Sailing%20Boat,%20Adamantas%20Port","amap":"https://uri.amap.com/marker?position=24.4478,36.7231&name=Polco%20Sailing%20Boat,%20Adamantas%20Port"},"mapQuery":"Polco Sailing Boat, Adamantas Port"},{"id":"x96-stop","name":"X96 机场巴士站（港口）","nameEn":"X96 Airport Express Bus Stop, Piraeus Port","type":"transit","city":"雅典","coords":[37.9475,23.638],"note":"港口主门区域，找蓝色 ΛΕΩΦΟΡΕΙΟ 指示牌","lat":37.9475,"lng":23.638,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9475,23.638","apple":"https://maps.apple.com/?ll=37.9475,23.638&q=X96%20Airport%20Express%20Bus%20Stop,%20Piraeus%20Port","amap":"https://uri.amap.com/marker?position=23.638,37.9475&name=X96%20Airport%20Express%20Bus%20Stop,%20Piraeus%20Port"},"mapQuery":"X96 Airport Express Bus Stop, Piraeus Port"},{"id":"piraeus-metro","name":"Piraeus 地铁站","nameEn":"Piraeus Metro Station","type":"transit","city":"雅典","coords":[37.9483,23.6431],"note":"地铁 3 号线（蓝线）可直达机场","lat":37.9483,"lng":23.6431,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9483,23.6431","apple":"https://maps.apple.com/?ll=37.9483,23.6431&q=Piraeus%20Metro%20Station","amap":"https://uri.amap.com/marker?position=23.6431,37.9483&name=Piraeus%20Metro%20Station"},"mapQuery":"Piraeus Metro Station"},{"id":"acropolis","name":"雅典卫城","nameEn":"Acropolis of Athens","type":"sight","city":"雅典","coords":[37.9715,23.7267],"note":"10.02 期望景点：卫城相关众神庙","lat":37.9715,"lng":23.7267,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.9715,23.7267","apple":"https://maps.apple.com/?ll=37.9715,23.7267&q=Acropolis%20of%20Athens","amap":"https://uri.amap.com/marker?position=23.7267,37.9715&name=Acropolis%20of%20Athens"},"mapQuery":"Acropolis of Athens"},{"id":"archaeological-museum","name":"国家考古博物馆","nameEn":"National Archaeological Museum, Athens","type":"sight","city":"雅典","coords":[37.989,23.7325],"note":"10.02 期望景点；距 PAME WILD 步行数分钟","lat":37.989,"lng":23.7325,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=37.989,23.7325","apple":"https://maps.apple.com/?ll=37.989,23.7325&q=National%20Archaeological%20Museum,%20Athens","amap":"https://uri.amap.com/marker?position=23.7325,37.989&name=National%20Archaeological%20Museum,%20Athens"},"mapQuery":"National Archaeological Museum, Athens"},{"id":"meteora","name":"梅黛奥拉修道院群","nameEn":"Meteora Monasteries","type":"sight","city":"卡兰巴卡","coords":[39.7217,21.6306],"note":"UNESCO 世界遗产；参观全部 6 座修道院、入内 3 座","lat":39.7217,"lng":21.6306,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=39.7217,21.6306","apple":"https://maps.apple.com/?ll=39.7217,21.6306&q=Meteora%20Monasteries","amap":"https://uri.amap.com/marker?position=21.6306,39.7217&name=Meteora%20Monasteries"},"mapQuery":"Meteora Monasteries"},{"id":"kalambaka","name":"卡兰巴卡","nameEn":"Kalambaka (Kalabaka)","type":"sight","city":"卡兰巴卡","coords":[39.7069,21.6275],"note":"梅黛奥拉山下小镇，13:30 抵达、导游接团处","lat":39.7069,"lng":21.6275,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=39.7069,21.6275","apple":"https://maps.apple.com/?ll=39.7069,21.6275&q=Kalambaka%20(Kalabaka)","amap":"https://uri.amap.com/marker?position=21.6275,39.7069&name=Kalambaka%20(Kalabaka)"},"mapQuery":"Kalambaka (Kalabaka)"},{"id":"kamena-vourla","name":"卡梅纳·武尔拉","nameEn":"Kamena Vourla","type":"sight","city":"途中","coords":[38.7767,22.7847],"note":"梅黛奥拉团往返途中的海滨休息停留点，正对埃维亚岛","lat":38.7767,"lng":22.7847,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=38.7767,22.7847","apple":"https://maps.apple.com/?ll=38.7767,22.7847&q=Kamena%20Vourla","amap":"https://uri.amap.com/marker?position=22.7847,38.7767&name=Kamena%20Vourla"},"mapQuery":"Kamena Vourla"},{"id":"heraklion-museum","name":"克里特考古博物馆","nameEn":"Heraklion Archaeological Museum","type":"sight","city":"伊拉克里翁","coords":[35.3395,25.1442],"note":"10.09「去一下博物馆」的推测目标，待确认","lat":35.3395,"lng":25.1442,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=35.3395,25.1442","apple":"https://maps.apple.com/?ll=35.3395,25.1442&q=Heraklion%20Archaeological%20Museum","amap":"https://uri.amap.com/marker?position=25.1442,35.3395&name=Heraklion%20Archaeological%20Museum"},"mapQuery":"Heraklion Archaeological Museum"},{"id":"chania","name":"干尼亚","nameEn":"Chania","type":"sight","city":"克里特岛","coords":[35.5138,24.018],"note":"10.08 备选目的地，距伊拉克里翁约 140km","lat":35.5138,"lng":24.018,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=35.5138,24.018","apple":"https://maps.apple.com/?ll=35.5138,24.018&q=Chania","amap":"https://uri.amap.com/marker?position=24.018,35.5138&name=Chania"},"mapQuery":"Chania"},{"id":"klima","name":"Klima 渔村","nameEn":"Klima, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.7333,24.3833],"note":"经过；米洛斯第一个首都，维纳斯雕像发现地","lat":36.7333,"lng":24.3833,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.7333,24.3833","apple":"https://maps.apple.com/?ll=36.7333,24.3833&q=Klima,%20Milos","amap":"https://uri.amap.com/marker?position=24.3833,36.7333&name=Klima,%20Milos"},"mapQuery":"Klima, Milos"},{"id":"cape-vani","name":"Cape Vani","nameEn":"Cape Vani, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.755,24.315],"note":"经过；19 世纪铁锰矿遗址","lat":36.755,"lng":24.315,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.755,24.315","apple":"https://maps.apple.com/?ll=36.755,24.315&q=Cape%20Vani,%20Milos","amap":"https://uri.amap.com/marker?position=24.315,36.755&name=Cape%20Vani,%20Milos"},"mapQuery":"Cape Vani, Milos"},{"id":"kalogries","name":"Kalogries Beach","nameEn":"Kalogries Beach, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.7617,24.3683],"note":"停留 30 分钟；第一次游泳浮潜 + 清淡早午餐","lat":36.7617,"lng":24.3683,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.7617,24.3683","apple":"https://maps.apple.com/?ll=36.7617,24.3683&q=Kalogries%20Beach,%20Milos","amap":"https://uri.amap.com/marker?position=24.3683,36.7617&name=Kalogries%20Beach,%20Milos"},"mapQuery":"Kalogries Beach, Milos"},{"id":"sikia","name":"Sikia 洞穴海滩","nameEn":"Sikia Beach & Cave, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.6914,24.3197],"note":"停留约 1-2 小时；小艇进洞穴探索 + 自制小吃与茴香酒","lat":36.6914,"lng":24.3197,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.6914,24.3197","apple":"https://maps.apple.com/?ll=36.6914,24.3197&q=Sikia%20Beach%20&%20Cave,%20Milos","amap":"https://uri.amap.com/marker?position=24.3197,36.6914&name=Sikia%20Beach%20&%20Cave,%20Milos"},"mapQuery":"Sikia Beach & Cave, Milos"},{"id":"kleftiko","name":"Kleftiko Beach","nameEn":"Kleftiko Beach, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.6708,24.3369],"note":"停留 1.5 小时；招牌白色岩柱，浮潜 + 船上现做午餐","lat":36.6708,"lng":24.3369,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.6708,24.3369","apple":"https://maps.apple.com/?ll=36.6708,24.3369&q=Kleftiko%20Beach,%20Milos","amap":"https://uri.amap.com/marker?position=24.3369,36.6708&name=Kleftiko%20Beach,%20Milos"},"mapQuery":"Kleftiko Beach, Milos"},{"id":"agios-dimitrios","name":"Agios Dimitrios 湾","nameEn":"Agios Dimitrios Beach, Milos","type":"cruise-stop","city":"米洛斯岛","coords":[36.6944,24.4139],"note":"停留 20 分钟；可望米洛斯火山口、Plaka 与 Tripiti","lat":36.6944,"lng":24.4139,"mapLinks":{"google":"https://www.google.com/maps/search/?api=1&query=36.6944,24.4139","apple":"https://maps.apple.com/?ll=36.6944,24.4139&q=Agios%20Dimitrios%20Beach,%20Milos","amap":"https://uri.amap.com/marker?position=24.4139,36.6944&name=Agios%20Dimitrios%20Beach,%20Milos"},"mapQuery":"Agios Dimitrios Beach, Milos"}],"logisticsTimeline":[{"seq":1,"kind":"flight","date":"2026-10-01","time":"09:20","title":"TK171 香港 T1 → 伊斯坦布尔","sub":"09:20-15:35 · 土耳其航空","fromPlaceId":"hkg","toPlaceId":"ist","refId":"F1","status":"confirmed"},{"seq":2,"kind":"layover","date":"2026-10-01","time":"15:35","title":"伊斯坦布尔转机","sub":"15:35-次日 01:45 · 约 10 小时","placeId":"ist","refId":"L1","status":"pending","note":"想趁转机时间进城玩一下，需确认过境签与时间余量"},{"seq":3,"kind":"flight","date":"2026-10-02","time":"01:45","title":"TK1841 伊斯坦布尔 → 雅典","sub":"01:45-03:10 · 土耳其航空","fromPlaceId":"ist","toPlaceId":"ath-airport","refId":"F2","status":"confirmed"},{"seq":4,"kind":"checkin","date":"2026-10-02","time":"入住","title":"PAME WILD 入住","sub":"10.02-10.04 · 2 晚 · 雅典市中心","placeId":"pame-wild","refId":"H1","status":"confirmed","note":"20 Ioulianou；官方入住时间 14:00，凌晨落地需提前沟通早入住或寄存行李"},{"seq":5,"kind":"tour","date":"2026-10-03","time":"08:45","title":"梅黛奥拉一日游集合","sub":"拉里萨火车站外街对面 · 09:00 发车","placeId":"larissa","refId":"TOUR1","status":"planned","note":"认车身 METEORA THRONES – TRAVEL CENTER 标志；22:45 返回雅典"},{"seq":6,"kind":"checkout","date":"2026-10-04","time":"退房","title":"PAME WILD 退房","sub":"退房时间 11:00","placeId":"pame-wild","refId":"H1","status":"confirmed","note":"当晚乘夜船离开雅典，行李可寄存酒店后继续市区活动"},{"seq":7,"kind":"ferry","date":"2026-10-04","time":"21:00","title":"夜船 比雷埃夫斯 → 阿达马斯","sub":"21:00-次日 01:00 · KNOSSOS PALACE · 4h · €44/人","fromPlaceId":"piraeus","toPlaceId":"adamantas","refId":"S1","status":"confirmed","overnight":true,"note":"建议提前 1.5-2 小时到港，港区闸口分布很广"},{"seq":8,"kind":"transfer","date":"2026-10-05","time":"01:00","title":"阿达马斯港 → 酒店","sub":"凌晨抵达接驳","fromPlaceId":"adamantas","toPlaceId":"giannis","refId":"P2","status":"pending","note":"酒店提供免费 mini-bus 接送，务必提前确认凌晨时段；步行也仅约 3 分钟"},{"seq":9,"kind":"checkin","date":"2026-10-05","time":"入住","title":"Hotel Apartments Giannis 入住","sub":"10.05-10.07 · 2 晚 · 1 间房","placeId":"giannis","refId":"H2","status":"confirmed","note":"距港口步行 3 分钟；10.05 前可免费取消"},{"seq":10,"kind":"tour","date":"2026-10-06","time":"10:00","title":"米洛斯全日跑船游集合","sub":"Polco 帆船前 · MENTOR CAFE 对面","placeId":"polco","refId":"TOUR2","status":"confirmed","note":"找高高飘扬的 POLCO 帆船旗帜；活动在集合地点结束"},{"seq":11,"kind":"checkout","date":"2026-10-07","time":"退房","title":"Hotel Apartments Giannis 退房","sub":"退房时间 11:00","placeId":"giannis","refId":"H2","status":"confirmed","note":"当晚船班在次日凌晨 01:20，白天可寄存行李继续活动"},{"seq":12,"kind":"ferry","date":"2026-10-08","time":"01:20","title":"夜船 阿达马斯 → 伊拉克里翁","sub":"01:20-06:30 · FESTOS PALACE · 5h10m","fromPlaceId":"adamantas","toPlaceId":"heraklion-port","refId":"S2","status":"confirmed","overnight":true,"note":"10.07 深夜从酒店前往港口，注意实际发船日期为 10.08"},{"seq":13,"kind":"stay-gap","date":"2026-10-08","time":"入住","title":"克里特住宿 · 待预订","sub":"10.08-10.09 · 1 晚","placeId":"crete-hotel","refId":"H3","status":"pending","note":"尚未预订；若当天选择前往干尼亚，住宿城市需相应调整"},{"seq":14,"kind":"checkout","date":"2026-10-09","time":"退房","title":"克里特住宿退房","sub":"当晚乘夜船返回雅典","placeId":"crete-hotel","refId":"H3","status":"pending"},{"seq":15,"kind":"ferry","date":"2026-10-09","time":"21:00","title":"夜船 伊拉克里翁 → 比雷埃夫斯","sub":"21:00-次日 06:30 · KNOSSOS PALACE · 9h30m","fromPlaceId":"heraklion-port","toPlaceId":"piraeus","refId":"S3","status":"confirmed","overnight":true,"note":"睡在船上，建议订舱位"},{"seq":16,"kind":"transfer","date":"2026-10-10","time":"06:30","title":"比雷埃夫斯港 → 雅典机场","sub":"推荐 X96 机场快线巴士 · €5.5/人 · 约 60-90 分钟","fromPlaceId":"piraeus","toPlaceId":"ath-airport","refId":"P3","status":"planned","isKey":true,"note":"07:30 前出发最稳；港口主门找蓝色 ΛΕΩΦΟΡΕΙΟ 指示牌"},{"seq":17,"kind":"flight","date":"2026-10-10","time":"11:45","title":"TK1848 雅典 → 伊斯坦布尔","sub":"11:45-13:20 · 土耳其航空","fromPlaceId":"ath-airport","toPlaceId":"ist","refId":"F3","status":"confirmed"},{"seq":18,"kind":"flight","date":"2026-10-10","time":"15:50","title":"TK170 伊斯坦布尔 → 香港 T1","sub":"15:50-次日 07:25 · 10.11 抵达","fromPlaceId":"ist","toPlaceId":"hkg","refId":"F4","status":"confirmed"}]}</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById('trip-data').textContent);
+
+/* ---------- icons ---------- */
+var I={
+  plane:'<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>',
+  ship:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18a3 3 0 0 0 3-1 3 3 0 0 1 5 0 3 3 0 0 0 5 0 3 3 0 0 1 5 0"/><path d="M4 14 6 8h12l2 6"/><path d="M12 8V4"/><path d="M8 4h8"/></svg>',
+  bed:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M2 16h20"/><path d="M6 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>',
+  bus:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/></svg>',
+  pin:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  clock:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+  chev:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
+  arrow:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>',
+  alert:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><line x1="12" y1="9" x2="12" y2="14"/><circle cx="12" cy="17.2" r=".9" fill="currentColor"/></svg>',
+  check:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke="#A7F3D0"/><polyline points="8 12.5 11 15.5 16 9.5"/></svg>',
+  circle:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.2"><circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/></svg>',
+  route:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19h5a4 4 0 0 0 0-8h-3a4 4 0 0 1 0-8h5"/></svg>',
+  link:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',
+  moon:'<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>',
+  note:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/></svg>',
+  cash:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>',
+  nav:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>',
+  ext:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="opacity:.55"><path d="M7 17 17 7"/><polyline points="9 7 17 7 17 15"/></svg>',
+  airport:'<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>',
+  hotel:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M2 16h20"/><path d="M6 10V7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>',
+  port:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v13"/><path d="M5 12H3a9 9 0 0 0 18 0h-2"/><path d="M8 9h8"/></svg>',
+  meeting:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M18.5 19a5 5 0 0 0-3-4.5"/></svg>',
+  transit:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/></svg>',
+  sight:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-6h4v6"/></svg>',
+  'cruise-stop':'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17a3 3 0 0 0 3-1 3 3 0 0 1 5 0 3 3 0 0 0 5 0 3 3 0 0 1 5 0"/><path d="M5 13 7 8h10l2 5"/><path d="M12 8V5"/></svg>'
+};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function el(h){var d=document.createElement('div');d.innerHTML=h.trim();return d.firstChild}
+function md(s){var m=String(s).match(/(\d{4})-(\d{2})-(\d{2})/);return m?m[2]+'.'+m[3]:s}
+function gmap(q){return 'https://maps.google.com/?q='+encodeURIComponent(q)}
+
+/* ---------- 地点索引 & 地图链接 ---------- */
+var PLACES={};
+(D.places||[]).forEach(function(p){PLACES[p.id]=p});
+var isIOS=/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent||'');
+function P(id){return PLACES[id]||null}
+/* 优先 Apple Maps(iOS) / Google Maps，均可在微信内唤起或落地网页 */
+function mapUrl(pl){
+  if(!pl) return null;
+  var L=pl.mapLinks||{};
+  if(isIOS&&L.apple) return L.apple;
+  return L.google||L.apple||L.amap||null;
+}
+/* 地点药丸：可点击跳地图 */
+function pill(id,opt){
+  var pl=P(id); if(!pl) return '';
+  opt=opt||{};
+  var u=mapUrl(pl);
+  var nm=esc(opt.label||pl.name);
+  if(!u) return '<span class="gp gp-off">'+I.pin+nm+'</span>';
+  return '<a class="gp'+(opt.strong?' gp-s':'')+'" href="'+esc(u)+'" target="_blank" rel="noopener">'+
+         I.pin+'<span>'+nm+'</span>'+I.ext+'</a>';
+}
+/* 地点详情行（名称 + 地址 + 备注 + 跳转） */
+function placeRow(id,opt){
+  var pl=P(id); if(!pl) return '';
+  opt=opt||{};
+  var u=mapUrl(pl);
+  var sub=[];
+  if(pl.address) sub.push(esc(pl.address));
+  else if(pl.city&&!opt.hideCity) sub.push(esc(pl.city));
+  var inner='<div class="pr-ic'+(pl.isPlaceholder?' ph':'')+'">'+(I[pl.type]||I.pin)+'</div>'+
+    '<div class="pr-tx"><b>'+esc(opt.label||pl.name)+'</b>'+
+    (sub.length?'<span>'+sub.join(' · ')+'</span>':'')+
+    (opt.note!==false&&pl.note?'<em>'+esc(pl.note)+'</em>':'')+
+    '</div>'+
+    (u?'<span class="pr-go">'+I.nav+'</span>':'<span class="bd bd-pend" style="flex:0 0 auto">待定</span>');
+  return u?'<a class="pr" href="'+esc(u)+'" target="_blank" rel="noopener">'+inner+'</a>'
+          :'<div class="pr pr-off">'+inner+'</div>';
+}
+
+/* ---------- HERO ---------- */
+var t=D.trip;
+document.getElementById('heroDate').innerHTML=
+  '<span>'+md(t.startDate)+'</span><span class="arw">'+I.arrow+'</span><span>'+md(t.endDate)+'</span>'+
+  '<span style="font-size:12px;opacity:.82;font-weight:450">（'+md(t.returnArrivalDate)+' 抵港）· '+esc(t.travelers.description)+'</span>';
+
+var nights=D.nightsOnBoard.length;
+var hotelNights=D.accommodations.reduce(function(a,b){return a+(b.status==='pending'?0:b.nights)},0);
+document.getElementById('heroStats').innerHTML=[
+  ['<b>'+t.durationDays+'</b><span>天行程</span>'],
+  ['<b>'+(D.flights.outbound.length+D.flights.return.length)+'</b><span>段航班</span>'],
+  ['<b>'+D.transport.ferries.length+'</b><span>段轮渡</span>'],
+  ['<b>'+(D.places||[]).length+'</b><span>个地点</span>']
+].map(function(x){return '<div class="hstat">'+x[0]+'</div>'}).join('');
+
+/* ---------- NAV ---------- */
+var TABS=[['days','逐日行程'],['flights','航班'],['logi','住宿·交通'],['places','地点导航'],['todo','待办清单']];
+var nav=document.getElementById('nav');
+TABS.forEach(function(x,i){
+  var b=document.createElement('button');
+  b.textContent=x[1];b.setAttribute('role','tab');
+  b.setAttribute('aria-selected',i===0?'true':'false');
+  b.setAttribute('aria-controls','p-'+x[0]);
+  b.onclick=function(){
+    TABS.forEach(function(y,j){
+      nav.children[j].setAttribute('aria-selected',j===i?'true':'false');
+      document.getElementById('p-'+y[0]).classList.toggle('on',j===i);
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  nav.appendChild(b);
+});
+
+/* ---------- 逐日行程 ---------- */
+(function(){
+  var h='<div class="sec-h"><h2>逐日行程</h2><span class="cnt">'+D.dailyItinerary.length+' 天</span></div>';
+  h+='<div class="sec-note">点击每天卡片展开当日详细安排。<b>船宿</b> 标记表示当晚睡在船上，无需酒店。</div>';
+  D.dailyItinerary.forEach(function(d,idx){
+    var tags='';
+    var st=d.stayType||'';
+    if(/船/.test(st)) tags+='<span class="bd bd-night">'+I.moon+' 船宿</span>';
+    else if(/机上|转机/.test(st)) tags+='<span class="bd bd-pend">'+I.plane+' 机上</span>';
+    else if(/待预订/.test(st)) tags+='<span class="bd bd-warn bd-dot">住宿待定</span>';
+    else if(d.accommodationName) tags+='<span class="bd bd-ok">'+I.bed+' '+esc(d.accommodationName)+'</span>';
+    var kinds={};
+    (d.activities||[]).forEach(function(a){kinds[a.type]=1});
+    if(kinds.flight) tags+='<span class="bd bd-pend">航班</span>';
+    if(kinds.ferry||kinds['ferry-arrival']) tags+='<span class="bd bd-pend">轮渡</span>';
+    if(kinds.tour) tags+='<span class="bd bd-warn">跟团</span>';
+    if(kinds.undecided) tags+='<span class="bd bd-pend bd-dot">待定</span>';
+
+    var b='';
+    if(d.accommodationId){
+      var ac=D.accommodations.filter(function(x){return x.id===d.accommodationId})[0];
+      if(ac){
+        var ph=ac.status==='pending';
+        var apl=P(ac.placeId), au=apl?mapUrl(apl):null;
+        var sin='<span class="ic">'+I.bed+'</span><span class="tx"><b>'+(ph?'住宿待定':esc(ac.name))+'</b>'+
+           '<span>'+esc(ac.city)+(ac.rooms?' · '+esc(ac.rooms):'')+'</span></span>'+
+           (ph?'<span class="bd bd-warn bd-dot">未预订</span>'
+              :(au?'<span class="pr-go" style="flex:0 0 28px;height:28px">'+I.nav+'</span>':'<span class="bd bd-ok">已订</span>'));
+        b+=au?'<a class="stay" href="'+esc(au)+'" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">'+sin+'</a>'
+             :'<div class="stay">'+sin+'</div>';
+      }
+    }
+    b+='<div class="tl">';
+    (d.activities||[]).forEach(function(a){
+      var gp='';
+      if(a.placeId) gp+=pill(a.placeId,{strong:a.isKeyConnection});
+      if(a.wishlistPlaceIds) gp+=a.wishlistPlaceIds.map(function(id){return pill(id)}).join('');
+      if(a.optionPlaceIds) gp+=a.optionPlaceIds.map(function(id){return pill(id)}).join('');
+      b+='<div class="tl-i k-'+esc(a.type)+(a.isKeyConnection?' ':'')+'">'+
+         '<div class="tl-t">'+esc(a.time)+'</div>'+
+         '<div class="'+(a.isKeyConnection?'tl-key':'')+'">'+
+         '<div class="tl-ti">'+esc(a.title)+'</div>'+
+         (a.detail?'<div class="tl-d">'+esc(a.detail)+'</div>':'')+
+         (a.status?'<div style="margin-top:5px"><span class="bd bd-pend bd-dot">'+esc(a.status)+'</span></div>':'')+
+         (!a.wishlistPlaceIds&&a.wishlist?'<div class="wish">'+a.wishlist.map(function(w){return '<span>'+esc(w)+'</span>'}).join('')+'</div>':'')+
+         (!a.optionPlaceIds&&a.options?'<div class="wish">'+a.options.map(function(w){return '<span>'+esc(w)+'</span>'}).join('')+'</div>':'')+
+         (gp?'<div class="gps">'+gp+'</div>':'')+
+         '</div></div>';
+    });
+    b+='</div>';
+    if(d.cashNeeded) b+='<div class="notes" style="background:var(--warn-bg);border-color:#FCD34D"><div class="nh" style="color:#92400E">'+I.cash+' 需备现金</div><div style="font-size:12.5px;color:#92400E;font-weight:600">'+esc(d.cashNeeded.amount)+' '+esc(d.cashNeeded.currency)+' — '+esc(d.cashNeeded.reason)+'</div></div>';
+    if(d.notes&&d.notes.length) b+='<div class="notes"><div class="nh">备注</div><ul>'+d.notes.map(function(n){return '<li>'+esc(n)+'</li>'}).join('')+'</ul></div>';
+
+    h+='<details class="day"'+(idx===0?' open':'')+'><summary class="day-hd">'+
+       '<div class="day-num"><b>D'+d.day+'</b><span>'+esc(d.dateLabel)+'</span></div>'+
+       '<div class="day-meta"><div class="dt">'+md(d.date)+' '+esc(d.weekday)+'</div>'+
+       '<div class="tt">'+esc(d.title)+'</div>'+
+       (tags?'<div class="day-tags">'+tags+'</div>':'')+'</div>'+
+       '<div class="day-chev">'+I.chev+'</div></summary>'+
+       '<div class="day-bd">'+b+'</div></details>';
+  });
+  document.getElementById('p-days').innerHTML=h;
+})();
+
+/* ---------- 航班 ---------- */
+(function(){
+  function card(f){
+    return '<div class="card">'+
+      '<div class="fl-hd"><span class="fl-no">'+I.plane+esc(f.flightNo)+'</span>'+
+      '<span style="font-size:11.5px;color:var(--text-muted);font-weight:600">'+esc(f.airline)+' · '+md(f.date)+'</span></div>'+
+      '<div class="fl-body">'+
+      '<div class="fl-pt"><b>'+esc(f.departTime)+'</b><span>'+esc(f.from)+'</span></div>'+
+      '<div class="fl-mid"><div class="ln">'+I.plane.replace('16" height="16','13" height="13')+'</div><span>'+(f.arrivesNextDay?'跨夜':'直飞')+'</span></div>'+
+      '<div class="fl-pt"><b>'+esc(f.arriveTime)+'</b><span>'+esc(f.to)+'</span></div>'+
+      '</div>'+
+      (f.arrivesNextDay?'<div class="fl-ft">'+I.alert+'次日 '+md(f.arrivalDate)+' 抵达</div>':'')+
+      ((f.fromPlaceId||f.toPlaceId)?'<div class="fl-ft"><div class="gps" style="margin-top:0">'+
+        pill(f.fromPlaceId)+'<span style="color:var(--text-soft);align-self:center">'+I.arrow+'</span>'+pill(f.toPlaceId)+
+        '</div></div>':'')+
+      '</div>';
+  }
+  var h='<div class="sec-h"><h2>航班信息</h2><span class="cnt">4 段</span></div>';
+  h+='<div class="sec-note">全程土耳其航空，去程与回程均在伊斯坦布尔转机。</div>';
+  h+='<div class="sec-h" style="margin-top:6px"><h2 style="font-size:15px">去程 · 10.01 出发</h2></div>';
+  D.flights.outbound.forEach(function(f){h+=card(f)});
+  var l1=D.flights.layovers[0];
+  h+='<div class="lay"><b>'+I.clock+'伊斯坦布尔转机 '+esc(l1.windowLabel)+'（约 '+l1.approxDurationHours.toFixed(1)+' 小时）</b><p>'+esc(l1.plan)+' — '+esc(l1.status)+'</p></div>';
+  h+='<div class="sec-h" style="margin-top:14px"><h2 style="font-size:15px">回程 · 10.10 返回</h2></div>';
+  D.flights.return.forEach(function(f){h+=card(f)});
+  var l2=D.flights.layovers[1];
+  h+='<div class="lay" style="background:var(--surface-2);border-color:var(--border)"><b style="color:var(--text-muted)">'+I.clock+'伊斯坦布尔转机（约 '+l2.approxDurationHours+' 小时）</b><p style="color:var(--text-soft)">'+esc(l2.plan)+'</p></div>';
+  h+='<div class="gap"><h3>'+I.alert+' 缺失信息</h3><ul><li>航班订单号、舱位、行李额均未记录，建议补充</li></ul></div>';
+  document.getElementById('p-flights').innerHTML=h;
+})();
+
+/* ---------- 住宿 · 交通（按时间顺序） ---------- */
+(function(){
+  var LG=D.logisticsTimeline||[];
+  var KIND={
+    flight:{ic:'plane',label:'航班'},
+    ferry:{ic:'ship',label:'轮渡'},
+    checkin:{ic:'bed',label:'入住'},
+    checkout:{ic:'bed',label:'退房'},
+    'stay-gap':{ic:'bed',label:'住宿'},
+    tour:{ic:'route',label:'集合'},
+    transfer:{ic:'bus',label:'接驳'},
+    layover:{ic:'clock',label:'转机'}
+  };
+  var WD=['周日','周一','周二','周三','周四','周五','周六'];
+  function wd(ds){var p=ds.split('-');return WD[new Date(+p[0],+p[1]-1,+p[2]).getDay()]}
+
+  var h='<div class="sec-h"><h2>住宿 · 交通</h2><span class="cnt">'+LG.length+' 步</span></div>';
+  h+='<div class="sec-note">按时间顺序排列的完整行程链：航班 · 轮渡 · 入住退房 · 接驳集合，一条线走完全程。'+
+     '<b>点击蓝色地点标签可直接跳转地图导航。</b></div>';
+
+  var curDate='';
+  LG.forEach(function(x){
+    if(x.date!==curDate){
+      curDate=x.date;
+      h+='<div class="lg-day"><b>'+md(x.date)+'</b><span>'+wd(x.date)+'</span></div>';
+    }
+    var k=KIND[x.kind]||{ic:'pin',label:''};
+    var badge='';
+    if(x.status==='confirmed') badge='<span class="bd bd-ok">已订</span>';
+    else if(x.status==='planned') badge='<span class="bd bd-warn bd-dot">准备定</span>';
+    else if(x.status==='pending') badge='<span class="bd bd-pend bd-dot">待定</span>';
+    if(x.overnight) badge+=' <span class="bd bd-night">'+I.moon+' 夜船</span>';
+
+    var route='';
+    if(x.fromPlaceId&&x.toPlaceId){
+      route='<div class="lg-route">'+pill(x.fromPlaceId)+
+            '<span class="ar">'+I.arrow+'</span>'+
+            pill(x.toPlaceId,{strong:x.isKey})+'</div>';
+    } else if(x.placeId){
+      route='<div class="lg-route">'+pill(x.placeId,{strong:x.kind==='tour'})+'</div>';
+    }
+
+    h+='<div class="lg k-'+esc(x.kind)+(x.isKey?' is-key':'')+'">'+
+       '<div class="lg-dot">'+(I[k.ic]||I.pin)+'</div>'+
+       '<div class="lg-card">'+
+       '<div class="lg-hd"><span class="lg-tm">'+esc(x.time)+'</span>'+
+       '<span class="lg-ti">'+esc(x.title)+'</span></div>'+
+       (x.sub?'<div class="lg-sub">'+esc(x.sub)+'</div>':'')+
+       (badge?'<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap">'+badge+'</div>':'')+
+       route+
+       (x.note?'<div class="lg-note">'+esc(x.note)+'</div>':'')+
+       '</div></div>';
+  });
+
+  /* ---- 住宿汇总 ---- */
+  h+='<div class="sec-h" style="margin-top:20px"><h2 style="font-size:15px">住宿汇总</h2><span class="cnt">10 晚</span></div>';
+  h+='<div class="ck"><div class="ck-h">'+I.hotel+'酒店（'+D.accommodations.filter(function(a){return a.status!=='pending'}).length+' 处 · 5 晚）</div>';
+  D.accommodations.forEach(function(a){
+    var ph=a.status==='pending';
+    var pl=P(a.placeId);
+    var u=pl?mapUrl(pl):null;
+    var inner='<span class="bx">'+(ph?I.circle:I.check)+'</span>'+
+      '<span class="tx"><b>'+(ph?'克里特住宿 · 尚未预订':esc(a.name))+'</b>'+
+      '<span>'+esc(a.city)+' · '+md(a.checkIn)+'-'+md(a.checkOut)+' · '+a.nights+' 晚'+
+      (a.rooms?' · '+esc(a.rooms):'')+'</span>'+
+      (pl&&pl.address?'<span>'+esc(pl.address)+'</span>':'')+
+      (a.cancellationPolicy?'<span style="color:var(--warn)">'+esc(a.cancellationPolicy)+'</span>':'')+
+      (pl&&pl.note?'<span>'+esc(pl.note)+'</span>':'')+
+      '</span>'+
+      (u?'<span class="pr-go" style="flex:0 0 30px">'+I.nav+'</span>':'<span class="dt">待定</span>');
+    h+=u?'<a class="ck-i" href="'+esc(u)+'" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">'+inner+'</a>'
+        :'<div class="ck-i">'+inner+'</div>';
+  });
+  h+='</div>';
+
+  h+='<div class="ck"><div class="ck-h">'+I.moon+'船上过夜（3 晚 · 无需酒店）</div>';
+  D.nightsOnBoard.forEach(function(n){
+    h+='<div class="ck-i"><span class="bx">'+I.circle+'</span><span class="tx"><b>'+md(n.date)+' 夜</b><span>'+esc(n.description)+'</span></span></div>';
+  });
+  h+='</div>';
+  h+='<div class="sec-note" style="margin-top:0">其余 2 晚：10.01 伊斯坦布尔转机（夜间机上）、10.10 回程航班机上。</div>';
+
+  /* ---- 轮渡明细 ---- */
+  h+='<div class="sec-h" style="margin-top:18px"><h2 style="font-size:15px">轮渡明细</h2><span class="cnt">'+D.transport.ferries.length+' 段</span></div>';
+  h+='<div class="sec-note">全部为 MINOAN LINES 夜船，均跨零点航行，请注意实际发船日期。</div>';
+  D.transport.ferries.forEach(function(f){
+    h+='<div class="card">'+
+      '<div class="fy-hd"><span class="fy-v">'+I.ship+esc(f.vessel)+' <small>'+esc(f.operator)+'</small></span>'+
+      '<span class="bd bd-night">'+I.moon+' 夜船</span></div>'+
+      '<div class="fl-body">'+
+      '<div class="fl-pt"><b>'+esc(f.departTime)+'</b><span>'+esc(f.from)+'<br><small style="color:var(--text-soft)">'+md(f.departDate)+'</small></span></div>'+
+      '<div class="fl-mid"><div class="ln">'+I.ship.replace('16" height="16','13" height="13')+'</div><span>'+esc(f.duration)+'</span></div>'+
+      '<div class="fl-pt"><b>'+esc(f.arriveTime)+'</b><span>'+esc(f.to)+'<br><small style="color:var(--text-soft)">'+md(f.arriveDate)+'</small></span></div>'+
+      '</div>'+
+      '<div class="fl-ft">'+(f.price?'<b style="color:var(--primary-dark);font-size:13px">€'+f.price.amount.toFixed(2)+'</b> / '+esc(f.price.unit):'<span>票价未记录</span>')+
+      '<div class="gps" style="flex:1 0 100%;margin-top:6px">'+pill(f.fromPlaceId)+'<span style="color:var(--text-soft);align-self:center">'+I.arrow+'</span>'+pill(f.toPlaceId)+'</div>'+
+      '</div></div>';
+  });
+
+  /* ---- 10.10 关键接驳 ---- */
+  var p3=D.transport.publicTransport.filter(function(x){return x.id==='P3'})[0];
+  h+='<div class="sec-h" style="margin-top:18px"><h2 style="font-size:15px">10.10 港口 → 机场</h2><span class="cnt">关键接驳</span></div>';
+  var c=p3.constraint;
+  h+='<div class="dl" style="background:#EFF6FF;border-color:#BFDBFE"><div class="dl-h" style="color:#1D4ED8">'+I.clock+'时间窗口：'+esc(c.availableWindow)+'</div>'+
+     '<div class="dl-i" style="border:none"><b style="color:#2563EB">下船</b><p style="color:#1E3A8A">'+esc(c.shipArrival)+'</p></div>'+
+     '<div class="dl-i" style="border-color:#BFDBFE"><b style="color:#2563EB">起飞</b><p style="color:#1E3A8A">'+esc(c.flightDeparture)+'</p></div>'+
+     '<div class="dl-i" style="border-color:#BFDBFE"><b style="color:#2563EB">建议</b><p style="color:#1E3A8A">'+esc(c.assessment)+'</p></div></div>';
+
+  var ap=p3.actionPlan;
+  h+='<div class="plan"><div class="plan-h">'+I.route+'推荐方案：'+esc(ap.recommended)+'</div><div class="plan-tl">';
+  ap.timeline.forEach(function(x){h+='<div class="plan-i"><b>'+esc(x.time)+'</b><p>'+esc(x.action)+'</p></div>'});
+  h+='</div><div class="plan-bf">'+I.check.replace('#059669','#9A3412').replace('#A7F3D0','#FDBA74')+' '+esc(ap.buffer)+'</div>'+
+     '<div class="gps">'+pill('piraeus')+'<span style="color:#9A3412;align-self:center">'+I.arrow+'</span>'+pill('x96-stop',{strong:true})+'<span style="color:#9A3412;align-self:center">'+I.arrow+'</span>'+pill('ath-airport')+'</div>'+
+     '</div>';
+
+  h+='<div class="sec-h" style="margin-top:6px"><h2 style="font-size:15px">4 种方式对比</h2></div>';
+  p3.options.forEach(function(o){
+    var pr=o.price.amount!=null?'€'+o.price.amount:(o.price.range?'€'+o.price.range:'—');
+    h+='<div class="opt'+(o.recommended?' best':'')+'">'+
+      '<div class="opt-hd"><span class="opt-rk">'+o.rank+'</span>'+
+      '<span class="opt-nm">'+esc(o.mode)+(o.recommended?' <span class="bd bd-warn" style="margin-left:3px">推荐</span>':'')+'</span>'+
+      '<span class="opt-pr">'+pr+'</span></div>'+
+      '<div class="opt-bd">'+
+      '<div class="opt-row"><span class="k">耗时</span><span class="v">'+esc(o.durationLabel||(o.durationMin+' 分钟'))+'</span></div>'+
+      (o.price.note?'<div class="opt-row"><span class="k">票价</span><span class="v">'+esc(o.price.note)+'</span></div>':'')+
+      (o.frequency?'<div class="opt-row"><span class="k">班次</span><span class="v">'+esc(o.frequency)+'</span></div>':'')+
+      (o.boardingPoint?'<div class="opt-row"><span class="k">上车点</span><span class="v">'+esc(o.boardingPoint)+'</span></div>':'')+
+      (o.ticketing?'<div class="opt-row"><span class="k">购票</span><span class="v">'+esc(o.ticketing)+'</span></div>':'')+
+      (o.tips?'<div class="opt-row"><span class="k">提醒</span><span class="v" style="color:var(--warn)">'+esc(o.tips)+'</span></div>':'')+
+      (o.alternativeRoute?'<div class="opt-row"><span class="k">备选</span><span class="v">'+esc(o.alternativeRoute)+'</span></div>':'')+
+      (o.placeId?'<div class="gps">'+pill(o.placeId)+'</div>':'')+
+      '<div class="pc">'+
+      (o.pros||[]).map(function(x){return '<span class="p">'+esc(x)+'</span>'}).join('')+
+      (o.cons||[]).map(function(x){return '<span class="c">'+esc(x)+'</span>'}).join('')+
+      '</div></div></div>';
+  });
+  h+='<div class="gap"><h3>'+I.alert+' 注意事项</h3><ul>'+p3.warnings.map(function(w){return '<li>'+esc(w)+'</li>'}).join('')+'</ul></div>';
+
+  /* ---- 其他当地交通 ---- */
+  h+='<div class="sec-h" style="margin-top:14px"><h2 style="font-size:15px">其他当地交通</h2></div>';
+  D.transport.publicTransport.filter(function(x){return x.id!=='P3'}).forEach(function(p){
+    h+='<div class="card"><div class="card-pad">'+
+      '<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px"><span style="color:var(--primary-dark)">'+I.bus+'</span>'+
+      '<b style="font-size:14px;font-weight:680">'+esc(p.city)+' · '+esc(p.context)+'</b></div>'+
+      '<div style="font-size:12.5px;color:var(--text-muted);line-height:1.62">'+esc(p.detail)+'</div>'+
+      (p.suggestion?'<div style="font-size:12.5px;color:var(--warn);margin-top:5px">'+esc(p.suggestion)+'</div>':'')+
+      (p.status?'<div style="margin-top:6px"><span class="bd bd-pend bd-dot">'+esc(p.status)+'</span></div>':'')+
+      (p.placeId?'<div class="gps">'+pill(p.placeId)+'</div>':'')+
+      '</div></div>';
+  });
+  D.transport.carRental.forEach(function(c2){
+    h+='<div class="card"><div class="card-pad">'+
+      '<div style="display:flex;align-items:center;gap:7px;margin-bottom:5px"><span style="color:var(--primary-dark)">'+I.route+'</span>'+
+      '<b style="font-size:14px;font-weight:680">'+esc(c2.city)+' 租车</b><span class="bd bd-pend bd-dot" style="margin-left:auto">'+esc(c2.status)+'</span></div>'+
+      '<div style="font-size:12.5px;color:var(--text-muted)">'+md(c2.date)+' · '+esc(c2.note)+'</div>'+
+      (c2.placeId?'<div class="gps">'+pill(c2.placeId)+'</div>':'')+
+      '</div></div>';
+  });
+  document.getElementById('p-logi').innerHTML=h;
+})();
+
+/* ---------- 地点导航 ---------- */
+(function(){
+  var GROUPS=[
+    ['hotel','住宿',I.hotel],
+    ['meeting','集合点',I.meeting],
+    ['port','港口',I.port],
+    ['airport','机场',I.airport],
+    ['transit','交通站点',I.transit],
+    ['sight','景点 · 游览',I.sight],
+    ['cruise-stop','跑船游停靠点',I['cruise-stop']]
+  ];
+  var pls=D.places||[];
+  var h='<div class="sec-h"><h2>地点导航</h2><span class="cnt">'+pls.length+' 处</span></div>';
+  h+='<div class="sec-note">全部行程地点的定位汇总，<b>点击任意一条即可跳转地图导航</b>。iPhone 会打开 Apple 地图，其他设备打开 Google 地图。</div>';
+
+  GROUPS.forEach(function(g){
+    var list=pls.filter(function(p){return p.type===g[0]});
+    if(!list.length) return;
+    h+='<div class="sec-h" style="margin-top:14px"><h2 style="font-size:15px">'+g[1]+'</h2><span class="cnt">'+list.length+'</span></div>';
+    list.forEach(function(p){h+=placeRow(p.id)});
+  });
+
+  /* 梅黛奥拉当天路线 */
+  var t1=D.tours[0];
+  if(t1.routePlaceIds){
+    h+='<div class="sec-h" style="margin-top:18px"><h2 style="font-size:15px">梅黛奥拉一日游 · 当天路线</h2></div>';
+    h+='<div class="plan"><div class="plan-h">'+I.route+esc(t1.name)+'</div><div class="plan-tl">';
+    t1.schedule.forEach(function(s){
+      h+='<div class="plan-i"><b>'+esc(s.time)+'</b><p>'+esc(s.detail)+'</p></div>';
+    });
+    h+='</div>';
+    h+='<div class="gps">';
+    ['larissa','kamena-vourla','kalambaka','meteora'].forEach(function(id,i){
+      if(i) h+='<span style="color:#9A3412;align-self:center">'+I.arrow+'</span>';
+      h+=pill(id,{strong:true});
+    });
+    h+='</div>';
+    h+='<div class="plan-bf">费用：团费 €65 + 午餐 €12（可选）+ 修道院门票 €5（现金必付）≈ €82/人</div>';
+    h+='</div>';
+    if(t1.dressCode){
+      h+='<div class="dl" style="background:var(--warn-bg);border-color:#FCD34D"><div class="dl-h" style="color:#92400E">'+I.alert+esc(t1.dressCode.summary)+'</div>'+
+         '<div class="dl-i" style="border:none"><b style="color:#B45309">女士</b><p style="color:#92400E">'+esc(t1.dressCode.women)+'</p></div>'+
+         '<div class="dl-i" style="border-color:#FCD34D"><b style="color:#B45309">男士</b><p style="color:#92400E">'+esc(t1.dressCode.men)+'</p></div>'+
+         '<div class="dl-i" style="border-color:#FCD34D"><b style="color:#B45309">建议</b><p style="color:#92400E">'+esc(t1.dressCode.tip)+'</p></div></div>';
+    }
+  }
+
+  /* 跑船游航线 */
+  var t2=D.tours[1];
+  h+='<div class="sec-h" style="margin-top:18px"><h2 style="font-size:15px">米洛斯跑船游 · 航线停靠</h2><span class="cnt">'+t2.stops.length+' 站</span></div>';
+  h+='<div class="sec-note">10.06 全日 · 10:00 于 '+esc(P('polco')?P('polco').name:'集合点')+' 出发，活动在集合地点结束。</div>';
+  h+=placeRow('polco',{label:'集合点：'+(P('polco')?P('polco').name:'')});
+  t2.stops.forEach(function(s){
+    var pl=P(s.placeId);
+    var u=pl?mapUrl(pl):null;
+    var inner='<div class="pr-ic">'+I['cruise-stop']+'</div>'+
+      '<div class="pr-tx"><b>'+s.order+'. '+esc(s.name)+
+      '<span class="bd bd-pend">'+esc(s.duration||s.type)+'</span></b>'+
+      '<em>'+esc(s.description)+'</em></div>'+
+      (u?'<span class="pr-go">'+I.nav+'</span>':'');
+    h+=u?'<a class="pr" href="'+esc(u)+'" target="_blank" rel="noopener">'+inner+'</a>':'<div class="pr pr-off">'+inner+'</div>';
+  });
+
+  document.getElementById('p-places').innerHTML=h;
+})();
+
+/* ---------- 待办清单 ---------- */
+(function(){
+  var b=D.bookingStatusSummary;
+  var h='<div class="sec-h"><h2>预订状态</h2><span class="cnt">'+b.confirmed.length+' 已订 / '+(b.planned.length+b.pending.length)+' 待办</span></div>';
+
+  h+='<div class="dl"><div class="dl-h">'+I.alert+'关键截止日</div>';
+  D.keyDeadlines.forEach(function(d){
+    h+='<div class="dl-i"><b>'+md(d.date)+(d.time?' '+d.time:'')+'</b><p>'+esc(d.item)+'</p></div>';
+  });
+  h+='</div>';
+
+  if(D.cashNotes){
+    h+='<div class="ck" style="border-color:#FCD34D"><div class="ck-h" style="background:var(--warn-bg);color:#92400E">'+I.cash+'需备现金</div>';
+    D.cashNotes.forEach(function(c){
+      h+='<div class="ck-i"><span class="bx">'+I.circle+'</span><span class="tx"><b>'+esc(c.item)+' · '+esc(c.amount)+'</b><span>'+esc(c.reason)+'</span></span><span class="dt">'+md(c.date)+'</span></div>';
+    });
+    h+='</div>';
+  }
+
+  h+='<div class="ck"><div class="ck-h">'+I.check+'已确认（'+b.confirmed.length+'）</div>';
+  b.confirmed.forEach(function(x){
+    h+='<div class="ck-i"><span class="bx">'+I.check+'</span><span class="tx"><b>'+esc(x.item)+'</b>'+
+       (x.bookingUrl?'<span><a href="'+esc(x.bookingUrl)+'" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:650">查看订单凭证 →</a></span>':'')+
+       '</span><span class="dt">'+esc(x.date.replace(/2026-/g,'').replace(/-/g,'.'))+'</span></div>';
+  });
+  h+='</div>';
+
+  h+='<div class="ck" style="border-color:#FCD34D"><div class="ck-h" style="background:var(--warn-bg);color:#92400E">'+I.note+'准备预订（'+b.planned.length+'）</div>';
+  b.planned.forEach(function(x){
+    h+='<div class="ck-i"><span class="bx">'+I.circle+'</span><span class="tx"><b>'+esc(x.item)+'</b><span>'+esc(x.note)+
+       (x.bookingUrl?' · <a href="'+esc(x.bookingUrl)+'" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:650">去预订 →</a>':'')+
+       '</span></span><span class="dt">'+md(x.date)+'</span></div>';
+  });
+  h+='</div>';
+
+  h+='<div class="ck"><div class="ck-h">'+I.circle+'待确定（'+b.pending.length+'）</div>';
+  b.pending.forEach(function(x){
+    h+='<div class="ck-i"><span class="bx">'+I.circle+'</span><span class="tx"><b>'+esc(x.item)+'</b><span>'+esc(x.note)+'</span></span><span class="dt">'+md(x.date)+'</span></div>';
+  });
+  h+='</div>';
+
+  h+='<div class="sec-h" style="margin-top:16px"><h2 style="font-size:15px">相关链接</h2></div>';
+  D.referenceLinks.forEach(function(l){
+    h+='<a class="lk" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+
+       '<span class="ic">'+I.link+'</span><span class="tx"><b>'+esc(l.title)+'</b><span>'+esc(l.usage)+'</span></span>'+
+       '<span style="color:var(--text-soft)">'+I.arrow+'</span></a>';
+  });
+  var tour2=D.tours[1];
+  h+='<a class="lk" href="'+esc(tour2.booking.bookingDetailsUrl)+'" target="_blank" rel="noopener">'+
+     '<span class="ic" style="background:var(--ok-bg);color:var(--ok)">'+I.check+'</span>'+
+     '<span class="tx"><b>米洛斯跑船游 · 订单凭证</b><span>参考号 '+esc(tour2.booking.referenceNo)+' · '+esc(tour2.booking.total.raw)+'</span></span>'+
+     '<span style="color:var(--text-soft)">'+I.arrow+'</span></a>';
+
+  h+='<div class="gap" style="margin-top:14px"><h3>'+I.alert+' 信息待补充</h3><ul>'+D.dataGaps.map(function(g){return '<li>'+esc(g)+'</li>'}).join('')+'</ul></div>';
+  document.getElementById('p-todo').innerHTML=h;
+})();
+
+document.getElementById('ft').innerHTML='数据整理自「全流程总结页面」· 更新于 '+esc(D.meta.lastUpdated||D.meta.generatedAt)+'<br>票价与班次信息请于出行前再次核对官方渠道';
+
+/* ---------- share ---------- */
+var toast=document.getElementById('toast');
+function tip(m){toast.textContent=m;toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},2400)}
+document.getElementById('shareBtn').onclick=function(){
+  var u=location.href;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(u).then(function(){tip('链接已复制，去微信粘贴发送吧')},function(){fb(u)});
+  } else fb(u);
+  function fb(x){
+    var i=document.createElement('textarea');i.value=x;i.style.position='fixed';i.style.opacity='0';
+    document.body.appendChild(i);i.select();
+    try{document.execCommand('copy');tip('链接已复制，去微信粘贴发送吧')}catch(e){tip('请长按地址栏复制链接')}
+    document.body.removeChild(i);
+  }
+};
+})();
+</script>
+</body>
+</html>
