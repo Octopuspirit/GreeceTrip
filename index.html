@@ -480,6 +480,10 @@ a{color:var(--bl)}
 }
 .dbn b{display:block;font-weight:700;margin-bottom:2px;font-size:12.5px}
 .dbn.on{background:var(--ok-l);border-color:#B6E0C7;color:var(--ok)}
+.dbn.err{background:var(--er-l);border-color:#F5C6C0;color:var(--er)}
+.dbn.err b{color:var(--er)}
+.dbn>span{flex:1;min-width:0}
+#syncDot{font-weight:700}
 .lb-img{position:fixed;inset:0;z-index:1100;background:rgba(20,26,28,.92);display:none;align-items:center;justify-content:center;padding:20px}
 .lb-img.on{display:flex}
 .lb-img img{max-width:100%;max-height:88vh;border-radius:var(--r);display:block}
@@ -622,31 +626,136 @@ function load(){
 var saveT=null;
 function save(){
   try{localStorage.setItem(LS,JSON.stringify(S));}catch(e){toast('本地存储写入失败，可能空间已满','er');}
-  if(cloudOn){clearTimeout(saveT);saveT=setTimeout(pushCloud,700);}
+  if(cloudOn){
+    clearTimeout(saveT);
+    saveT=setTimeout(function(){
+      pushCloud(function(ok,msg){
+        if(!ok){
+          /* 同步失败必须让用户知道，否则会以为已经存到云端了 */
+          toast('云端同步失败：'+msg,'er');
+          var bn=document.getElementById('dbnBox');
+          if(bn)refreshBanner();
+        }
+      });
+    },700);
+  }
 }
-function pushCloud(){
-  if(!cloudOn)return;
-  fetch(CLOUD.url.replace(/\/$/,'')+'/rest/v1/'+CLOUD.table,{
+/* 重绘存储状态横幅（横幅可能不在当前页，找不到就跳过） */
+function refreshBanner(){
+  var bn=document.getElementById('dbnBox');
+  if(!bn)return;
+  var tmp=document.createElement('div');
+  tmp.innerHTML=storeBanner();
+  bn.replaceWith(tmp.firstChild);
+  bindWho();
+}
+/* ---- 云端同步：所有失败都必须暴露给用户，绝不谎报「已同步」 ---- */
+var syncState='',syncMsg='',syncAt='',syncing=false;
+
+function cloudHeaders(extra){
+  var h={'apikey':CLOUD.anonKey,'Authorization':'Bearer '+CLOUD.anonKey};
+  if(extra)Object.keys(extra).forEach(function(k){h[k]=extra[k]});
+  return h;
+}
+/* 统一解析响应：Supabase 出错时也常返回 200 + JSON 错误体，必须两头都查 */
+function cloudResp(r){
+  return r.text().then(function(txt){
+    var j=null;
+    if(txt){try{j=JSON.parse(txt)}catch(e){}}
+    if(!r.ok){
+      var m=(j&&(j.message||j.msg||j.error_description||j.error||j.hint))||('HTTP '+r.status);
+      var e=new Error(m);e.code=(j&&j.code)||String(r.status);e.status=r.status;throw e;
+    }
+    /* 状态 2xx 但返回体里带 message/code 也是错误 */
+    if(j&&!Array.isArray(j)&&(j.message||j.code)&&j.payload===undefined){
+      var e2=new Error(j.message||('错误码 '+j.code));e2.code=j.code||'';throw e2;
+    }
+    return j;
+  });
+}
+/* 把技术错误翻译成可操作的中文提示 */
+function cloudHint(err){
+  var m=String(err&&err.message||''),c=String(err&&err.code||'');
+  if(/Failed to fetch|NetworkError|load failed/i.test(m))
+    return '连不上服务器。请检查网络，以及 Project URL 是否正确（形如 https://xxxx.supabase.co）';
+  if(c==='42P01'||/does not exist|relation .* does not exist/i.test(m))
+    return '数据表 '+CLOUD.table+' 不存在。请先在 Supabase 的 SQL Editor 执行建表语句';
+  if(c==='42501'||/row-level security|violates row-level/i.test(m))
+    return '被行级安全策略拒绝。建表后还需执行那 3 条 create policy 语句';
+  if(err&&err.status===401)
+    return '密钥无效或已失效。请重新复制 Publishable key / anon key';
+  if(err&&err.status===404)
+    return '接口地址不对。请确认 Project URL 无多余路径，且表名为 '+CLOUD.table;
+  if(/JWT|apikey/i.test(m))
+    return '密钥格式不对。应为 sb_publishable_xxx 或 eyJ 开头的 anon key';
+  return m||'未知错误';
+}
+
+function pushCloud(cb){
+  if(!cloudOn){cb&&cb(false,'未配置云端');return}
+  syncing=true;syncBadge('ing');
+  fetch(CLOUD.url.replace(/\/+$/,'')+'/rest/v1/'+encodeURIComponent(CLOUD.table),{
     method:'POST',
-    headers:{'apikey':CLOUD.anonKey,'Authorization':'Bearer '+CLOUD.anonKey,
-             'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
+    headers:cloudHeaders({'Content-Type':'application/json',
+      'Prefer':'resolution=merge-duplicates,return=minimal'}),
     body:JSON.stringify([{room:CLOUD.room,payload:S,updated_at:new Date().toISOString()}])
-  }).then(function(r){ if(!r.ok) throw 0; syncBadge('ok'); })
-    .catch(function(){ syncBadge('err'); });
+  }).then(cloudResp).then(function(){
+    syncing=false;syncAt=nowHM();syncBadge('ok');cb&&cb(true,'');
+  }).catch(function(e){
+    syncing=false;syncMsg=cloudHint(e);syncBadge('err');
+    cb&&cb(false,syncMsg);
+  });
 }
 function pullCloud(cb){
-  if(!cloudOn){cb&&cb(false);return;}
-  fetch(CLOUD.url.replace(/\/$/,'')+'/rest/v1/'+CLOUD.table+'?room=eq.'+encodeURIComponent(CLOUD.room)+'&select=payload',{
-    headers:{'apikey':CLOUD.anonKey,'Authorization':'Bearer '+CLOUD.anonKey}
-  }).then(function(r){return r.json()}).then(function(j){
-    if(j&&j[0]&&j[0].payload){var me=S.me;S=Object.assign(S,j[0].payload);if(me)S.me=me;
+  if(!cloudOn){cb&&cb(false,'未配置云端');return}
+  syncing=true;syncBadge('ing');
+  fetch(CLOUD.url.replace(/\/+$/,'')+'/rest/v1/'+encodeURIComponent(CLOUD.table)+
+        '?room=eq.'+encodeURIComponent(CLOUD.room)+'&select=payload',{
+    headers:cloudHeaders()
+  }).then(cloudResp).then(function(j){
+    syncing=false;
+    if(Array.isArray(j)&&j[0]&&j[0].payload){
+      var me=S.me;
+      S=Object.assign(S,j[0].payload);
+      if(me)S.me=me;
       try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}
-      syncBadge('ok');cb&&cb(true);}
-    else {syncBadge('ok');cb&&cb(false);}
-  }).catch(function(){syncBadge('err');cb&&cb(false)});
+      syncAt=nowHM();syncBadge('ok');cb&&cb(true,'');
+    }else{
+      /* 表可读但该房间还没数据 —— 这是正常的空态，不是错误 */
+      syncAt=nowHM();syncBadge('ok');cb&&cb(false,'');
+    }
+  }).catch(function(e){
+    syncing=false;syncMsg=cloudHint(e);syncBadge('err');
+    cb&&cb(false,syncMsg);
+  });
 }
-var syncState='';
-function syncBadge(s){syncState=s;var e=document.getElementById('syncDot');if(e)e.textContent=s==='ok'?'已同步':'同步失败'}
+/* 连接时做一次真实写入+读回自检，而不是只看请求有没有报错 */
+function cloudSelfTest(cb){
+  var probe={room:'__selftest__'+Date.now(),payload:{t:1},updated_at:new Date().toISOString()};
+  fetch(CLOUD.url.replace(/\/+$/,'')+'/rest/v1/'+encodeURIComponent(CLOUD.table),{
+    method:'POST',
+    headers:cloudHeaders({'Content-Type':'application/json',
+      'Prefer':'resolution=merge-duplicates,return=representation'}),
+    body:JSON.stringify([probe])
+  }).then(cloudResp).then(function(j){
+    if(!Array.isArray(j)||!j.length)
+      throw new Error('写入没有返回记录，可能缺少 insert 策略');
+    /* 清理探针行；删不掉不影响主流程 */
+    fetch(CLOUD.url.replace(/\/+$/,'')+'/rest/v1/'+encodeURIComponent(CLOUD.table)+
+          '?room=eq.'+encodeURIComponent(probe.room),
+      {method:'DELETE',headers:cloudHeaders()}).catch(function(){});
+    cb(true,'');
+  }).catch(function(e){cb(false,cloudHint(e))});
+}
+function nowHM(){var d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+':'+String(d.getSeconds()).padStart(2,'0')}
+function syncBadge(s){
+  syncState=s;
+  var e=document.getElementById('syncDot');
+  if(e)e.textContent=s==='ok'?('已同步 '+syncAt):s==='ing'?'同步中…':'同步失败';
+  var bn=document.getElementById('dbnBox');
+  if(bn&&s==='err')bn.className='dbn err';
+  if(bn&&s==='ok')bn.className='dbn on';
+}
 
 /* ---- IndexedDB 存图片原图 ---- */
 var IDB=null;
@@ -1586,16 +1695,32 @@ function whoCard(){
 }
 function storeBanner(){
   if(cloudOn){
-    return '<div class="dbn on">'+I.sync+'<span><b>已连接云端同步</b>房间 '+esc(CLOUD.room)+
-      ' · 大家看到的是同一份数据。<span id="syncDot">'+(syncState==='err'?'同步失败':'已同步')+'</span></span></div>';
+    if(syncState==='err'){
+      return '<div class="dbn err" id="dbnBox">'+I.alert+'<span><b>云端同步失败 — 数据只存在本机</b>'+
+        esc(syncMsg||'未知错误')+
+        '<div style="margin-top:7px;display:flex;gap:6px;flex-wrap:wrap">'+
+        '<button class="bt bt-s bt-d" id="syncRetry">'+I.sync+'重试</button>'+
+        '<button class="bt bt-s bt-g" id="cfgCloud">检查配置</button>'+
+        '<button class="bt bt-s bt-g" id="expBtn">'+I.dl+'导出备份</button>'+
+        '</div></span></div>';
+    }
+    return '<div class="dbn on" id="dbnBox">'+I.sync+'<span><b>已连接云端同步</b>房间 '+esc(CLOUD.room)+
+      ' · 大家看到的是同一份数据。<span id="syncDot">'+
+      (syncState==='ing'?'同步中…':syncAt?('已同步 '+esc(syncAt)):'待同步')+'</span>'+
+      '<div style="margin-top:7px;display:flex;gap:6px;flex-wrap:wrap">'+
+      '<button class="bt bt-s bt-g" id="syncNow">'+I.sync+'立即同步</button>'+
+      '<button class="bt bt-s bt-g" id="cfgCloud">配置</button>'+
+      '<button class="bt bt-s bt-g" id="expBtn">'+I.dl+'导出</button>'+
+      '</div></span></div>';
   }
-  return '<div class="dbn">'+I.alert+'<span><b>当前为本机模式</b>'+
+  return '<div class="dbn" id="dbnBox">'+I.alert+'<span><b>当前为本机模式</b>'+
     '数据存在你自己的浏览器里，朋友打开看到的是各自的副本。'+
     '用下方「导出/导入」可手动同步一次；填入云端配置后即可多人实时共享。'+
-    '<button class="bt bt-s bt-g" id="cfgCloud" style="margin-top:7px">'+I.sync+'配置云端同步</button>'+
-    '<button class="bt bt-s bt-g" id="expBtn" style="margin-top:7px;margin-left:6px">'+I.dl+'导出</button>'+
-    '<button class="bt bt-s bt-g" id="impBtn" style="margin-top:7px;margin-left:6px">'+I.up+'导入</button>'+
-    '</span></div>';
+    '<div style="margin-top:7px;display:flex;gap:6px;flex-wrap:wrap">'+
+    '<button class="bt bt-s bt-g" id="cfgCloud">'+I.sync+'配置云端同步</button>'+
+    '<button class="bt bt-s bt-g" id="expBtn">'+I.dl+'导出</button>'+
+    '<button class="bt bt-s bt-g" id="impBtn">'+I.up+'导入</button>'+
+    '</div></span></div>';
 }
 function bindWho(){
   var b=document.getElementById('whoSet');
@@ -1606,6 +1731,22 @@ function bindWho(){
   if(e)e.onclick=exportData;
   var i=document.getElementById('impBtn');
   if(i)i.onclick=importData;
+  var sn=document.getElementById('syncNow');
+  if(sn)sn.onclick=function(){
+    toast('正在同步…');
+    pushCloud(function(ok,msg){
+      ok?toast('已上传到云端','ok'):toast('同步失败：'+msg,'er');
+      refreshBanner();
+    });
+  };
+  var sr=document.getElementById('syncRetry');
+  if(sr)sr.onclick=function(){
+    toast('正在重试…');
+    pushCloud(function(ok,msg){
+      ok?toast('同步成功','ok'):toast('仍然失败：'+msg,'er');
+      refreshBanner();
+    });
+  };
 }
 function whoSheet(){
   var body='<div class="fm"><label>你的署名</label><input class="ip" id="whName" value="'+esc(S.me||'')+'" placeholder="例：章鱼"></div>'+
@@ -1622,31 +1763,79 @@ function whoSheet(){
 }
 function cloudSheet(){
   var body='<div class="tip">填入 Supabase 项目信息后，备忘录与记账数据会同步到云端，所有打开链接的人共享同一份。</div>'+
+    '<div class="tip tip-o"><b>'+I.alert+' 这两个值在哪里找？</b><br>'+
+    '进入 Supabase 项目 → 点顶部 <b>Connect</b> 按钮，弹窗里同时给出 URL 和密钥，直接复制最快。<br>'+
+    '或走 <b>Settings → API Keys</b>（注意是 <b>API Keys</b>，旧版 Settings → API 页面已取消）。<br>'+
+    'Project URL 也可在 <b>Project Overview</b> 项目名下方看到，形如 https://xxxx.supabase.co'+
+    '</div>'+
     '<div class="fm"><label>Project URL</label><input class="ip" id="cbU" value="'+esc(CLOUD.url)+'" placeholder="https://xxxx.supabase.co"></div>'+
-    '<div class="fm"><label>anon public key</label><input class="ip" id="cbK" value="'+esc(CLOUD.anonKey)+'" placeholder="eyJhbGci..."></div>'+
-    '<div class="fm"><label>房间号（同一房间共享数据）</label><input class="ip" id="cbR" value="'+esc(CLOUD.room)+'"></div>'+
-    '<div class="hint"><b>需要先在 Supabase 建一张表：</b><br>'+
-    'create table trip_state (room text primary key, payload jsonb, updated_at timestamptz);<br>'+
-    '并开启 RLS 后添加允许 anon 读写该表的策略。anon key 是公开可见的，'+
-    '任何拿到链接的人都能读写这张表，请勿存放敏感信息。</div>';
+    '<div class="fm"><label>Publishable key 或 anon key</label><input class="ip" id="cbK" value="'+esc(CLOUD.anonKey)+'" placeholder="sb_publishable_... 或 eyJhbGci..."></div>'+
+    '<div class="hint">两种都支持：新版 <b>sb_publishable_xxx</b>（推荐）或旧版 <b>anon</b> key（eyJ 开头）。'+
+    'API Keys 页面里若还没有 publishable key，点创建按钮生成一个即可，不影响原有 anon key。<br>'+
+    '<b style="color:var(--er)">切勿使用 Secret key / service_role</b> —— 那是管理员密钥，会绕过所有权限校验。</div>'+
+    '<div class="fm" style="margin-top:11px"><label>房间号（同一房间共享数据）</label><input class="ip" id="cbR" value="'+esc(CLOUD.room)+'"></div>'+
+    '<div class="hint"><b>还需先在 Supabase 的 SQL Editor 建表：</b>'+
+    '<span style="font-family:ui-monospace,SFMono-Regular,monospace;font-size:10.5px;line-height:1.75;display:block;margin:5px 0;word-break:break-all">'+
+    'create table trip_state (room text primary key, payload jsonb, updated_at timestamptz default now());<br>'+
+    'alter table trip_state enable row level security;<br>'+
+    'create policy "a" on trip_state for select using (true);<br>'+
+    'create policy "b" on trip_state for insert with check (true);<br>'+
+    'create policy "c" on trip_state for update using (true);</span>'+
+    '密钥是公开可见的，任何拿到链接的人都能读写这张表，<b>请勿存放护照号、银行卡号等敏感信息</b>。</div>'+
+    '<div id="cbErr" class="tip" style="display:none"></div>';
   sheet('配置云端同步',body,
     '<button class="bt bt-g" data-close="1">取消</button><button class="bt" id="cbOk">保存并连接</button>');
   document.getElementById('cbOk').onclick=function(){
-    var u=document.getElementById('cbU').value.trim(),k=document.getElementById('cbK').value.trim();
+    var u=document.getElementById('cbU').value.trim().replace(/\/+$/,''),
+        k=document.getElementById('cbK').value.trim();
     var r=document.getElementById('cbR').value.trim()||'greece-2026-10';
     if(u&&!/^https?:\/\//.test(u)){toast('URL 需以 https:// 开头','er');return}
+    if(k&&/^sb_secret_/.test(k)){toast('这是 Secret key，不能用在网页里','er');return}
+    if(k&&/^service_role/.test(k)){toast('不能使用 service_role 密钥','er');return}
     CLOUD={url:u,anonKey:k,table:'trip_state',room:r};
     try{localStorage.setItem('gr.cloud',JSON.stringify(CLOUD))}catch(e){}
     cloudOn=!!(u&&k);
-    closeSheet();
-    if(cloudOn){
-      toast('正在连接云端…');
-      pullCloud(function(got){
-        toast(got?'已连接，已拉取云端数据':'已连接，云端暂无数据，将上传本地数据','ok');
-        if(!got)pushCloud();
-        go(cur);
+    if(!cloudOn){closeSheet();toast('已切回本机模式','ok');go(cur);return}
+    /* 真实连通性自检：写入 + 读回，任何一步失败都如实报错 */
+    var okBtn=document.getElementById('cbOk');
+    okBtn.disabled=true;okBtn.textContent='正在检测连接…';
+    cloudSelfTest(function(pass,msg){
+      if(!pass){
+        okBtn.disabled=false;okBtn.textContent='保存并连接';
+        cloudOn=false;
+        syncState='err';syncMsg=msg;
+        var box=document.getElementById('cbErr');
+        if(box){
+          box.style.display='block';
+          box.className='tip';
+          box.style.background='var(--er-l)';
+          box.style.borderColor='#F5C6C0';
+          box.style.color='var(--er)';
+          box.innerHTML='<b>'+I.alert+' 连接失败，未启用云端同步</b><br>'+esc(msg)+
+            '<br><span style="opacity:.85">修好后再点一次「保存并连接」。在此之前数据仍只存在本机。</span>';
+        }
+        toast('连接失败，未启用云端','er');
+        return;
+      }
+      /* 自检通过，再拉取该房间既有数据 */
+      pullCloud(function(got,perr){
+        okBtn.disabled=false;okBtn.textContent='保存并连接';
+        if(perr){
+          cloudOn=false;syncState='err';syncMsg=perr;
+          toast('读取失败：'+perr,'er');go(cur);return;
+        }
+        closeSheet();
+        if(got){toast('已连接，并拉取到云端数据','ok');go(cur)}
+        else{
+          /* 云端该房间为空 → 上传本地数据，并如实反馈结果 */
+          pushCloud(function(pok,pmsg){
+            pok?toast('已连接，本地数据已上传云端','ok')
+               :toast('连接成功但上传失败：'+pmsg,'er');
+            go(cur);
+          });
+        }
       });
-    }else{toast('已切回本机模式','ok');go(cur)}
+    });
   };
 }
 function exportData(){
@@ -2148,8 +2337,12 @@ document.getElementById('ft').innerHTML=
   '<br>票价、班次与汇率请于使用前再次核对官方渠道';
 
 if(!RATES.at)fetchRates(function(){ if(cur==='money')renderMoney(); });
-if(cloudOn)pullCloud(function(){go('day')});
-else go('day');
+if(cloudOn){
+  pullCloud(function(got,err){
+    go('day');
+    if(err)toast('云端同步失败：'+err,'er');
+  });
+}else go('day');
 })();
 </script>
 </body>
