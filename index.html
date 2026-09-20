@@ -605,8 +605,13 @@ function pill(id,o){
 /* =========================================================================
    数据层：可插拔 adapter
    ========================================================================= */
-var CLOUD={url:'',anonKey:'',table:'trip_state',room:'greece-2026-10'};
-try{var sv=localStorage.getItem('gr.cloud');if(sv)CLOUD=Object.assign(CLOUD,JSON.parse(sv));}catch(e){}
+var CLOUD={
+  url:'https://edewinvhipszgctqdcya.supabase.co',
+  anonKey:'sb_publishable_rbR5juchsH2c7S21Vnpa0A_TnLdoP6X',
+  table:'trip_state',
+  room:'greece-2026-10'
+};
+
 var cloudOn=!!(CLOUD.url&&CLOUD.anonKey);
 
 var LS='gr.state.v1';
