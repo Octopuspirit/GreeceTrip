@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
 <title>希腊 10 日行程 · 旅行工具</title>
@@ -734,6 +734,68 @@ function pullCloud(cb){
     cb&&cb(false,syncMsg);
   });
 }
+  /* ---- Supabase 实时同步 ---- */
+var sbClient=null;
+var realtimeChannel=null;
+var applyingRemote=false;
+
+function initRealtime(){
+  if(!cloudOn)return;
+
+  if(!window.supabase||!window.supabase.createClient){
+    console.warn('Supabase JS 未加载，无法启用实时同步');
+    return;
+  }
+
+  sbClient=window.supabase.createClient(
+    CLOUD.url,
+    CLOUD.anonKey
+  );
+
+  realtimeChannel=sbClient
+    .channel('trip-state-'+CLOUD.room)
+    .on(
+      'postgres_changes',
+      {
+        event:'*',
+        schema:'public',
+        table:CLOUD.table,
+        filter:'room=eq.'+CLOUD.room
+      },
+      function(payload){
+        var row=payload.new;
+
+        if(!row||!row.payload)return;
+        if(applyingRemote)return;
+
+        applyingRemote=true;
+
+        try{
+          var me=S.me;
+          S=Object.assign(S,row.payload);
+
+          /* 保留当前浏览器的署名 */
+          if(me)S.me=me;
+
+          try{
+            localStorage.setItem(LS,JSON.stringify(S));
+          }catch(e){}
+
+          syncAt=nowHM();
+          syncBadge('ok');
+
+          /* 刷新当前页面 */
+          go(cur);
+        }finally{
+          applyingRemote=false;
+        }
+      }
+    )
+    .subscribe(function(status){
+      console.log('Supabase Realtime:',status);
+    });
+}
+
 /* 连接时做一次真实写入+读回自检，而不是只看请求有没有报错 */
 function cloudSelfTest(cb){
   var probe={room:'__selftest__'+Date.now(),payload:{t:1},updated_at:new Date().toISOString()};
@@ -843,14 +905,46 @@ fileIn.addEventListener('change',function(){
   fileIn.value='';fileCb=null;
 });
 function pickFiles(cb,multi){fileCb=cb;fileIn.multiple=!!multi;fileIn.click()}
-function saveImages(files,prefix){
-  var keys=[];
-  return files.reduce(function(pr,f){
-    return pr.then(function(){
-      var k=prefix+'_'+uid();
-      return imgPut(k,f).then(function(){keys.push({key:k,name:f.name,type:f.type,size:f.size})});
+function saveImages(files, prefix) {
+  var keys = [];
+
+  return files.reduce(function(pr, f) {
+    return pr.then(function() {
+      var k = prefix + '_' + uid();
+
+      // 云端文件路径
+      var cloudPath =
+        CLOUD.room + '/' + k + '_' + f.name;
+
+      // 1. 先保存到本地 IndexedDB
+      return imgPut(k, f).then(function() {
+
+        // 2. 如果配置了云端，同时上传到 Storage
+        if (!cloudOn || !sbClient) {
+          return {
+            path: '',
+            url: ''
+          };
+        }
+
+        return uploadToStorage(f, cloudPath);
+      }).then(function(cloudFile) {
+
+        // 3. 保存本地文件信息 + 云端文件信息
+        keys.push({
+          key: k,
+          name: f.name,
+          type: f.type,
+          size: f.size,
+          cloudPath: cloudFile.path || '',
+          cloudUrl: cloudFile.url || ''
+        });
+
+      });
     });
-  },Promise.resolve()).then(function(){return keys});
+  }, Promise.resolve()).then(function() {
+    return keys;
+  });
 }
 window.__esc=esc;window.__I=I;
 
@@ -2345,9 +2439,17 @@ if(!RATES.at)fetchRates(function(){ if(cur==='money')renderMoney(); });
 if(cloudOn){
   pullCloud(function(got,err){
     go('day');
-    if(err)toast('云端同步失败：'+err,'er');
+
+    if(err){
+      toast('云端同步失败：'+err,'er');
+    }
+
+    /* 首次读取云端数据后，开启实时监听 */
+    initRealtime();
   });
-}else go('day');
+}else{
+  go('day');
+}
 })();
 </script>
 </body>
